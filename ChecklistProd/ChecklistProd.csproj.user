@@ -18,6 +18,9 @@
     <MauiXaml Update="Views\AddGoalsPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\Controls\GoalControl.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\EditGoalsPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
