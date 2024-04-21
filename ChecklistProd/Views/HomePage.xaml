@@ -5,21 +5,21 @@
              Title="Home">
     
     <Grid RowDefinitions="20, 20, *, 50"
-          ColumnDefinitions="*"
+          ColumnDefinitions="100, *, 100"
           Margin="20, 20, 20, 20">
         
-        <Label Grid.Row="0" Grid.Column="0"
+        <Label Grid.Row="0" Grid.Column="1"
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <ProgressBar Grid.Row="1" Grid.Column="0"
+        <ProgressBar Grid.Row="1" Grid.Column="1"
             x:Name="progressBarLevel"
             Progress="0"
             ProgressColor="Orange"
         ></ProgressBar>
 
-        <ListView Grid.Row="2" Grid.Column="0"
+        <ListView Grid.Row="2" Grid.Column="1"
             x:Name="listGoals" 
             BackgroundColor="Transparent"
             SeparatorColor="Aqua"
@@ -30,13 +30,34 @@
         >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <!-- Curly braces refer to an object -->
-                    <TextCell Text="{Binding Task}"></TextCell>
+                    <!-- Curly braces refer to an object, Look into swapping the textcell to a viewcell so that I can add buttons. -->
+                    <TextCell
+                        Text="{Binding Task}"
+                        Detail="{Binding EXP}">
+                        <TextCell.ContextActions>
+                            <MenuItem Text="Delete" IsDestructive="True" Clicked="Delete_Clicked" CommandParameter="{Binding .}"></MenuItem>
+                            <MenuItem Text="Complete"></MenuItem>
+                            <MenuItem Text="Partial Complete"></MenuItem>
+                            <MenuItem Text="Re-Complete"></MenuItem>
+                        </TextCell.ContextActions>
+                    </TextCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button Grid.Row="3" Grid.Column="0"
+        <HorizontalStackLayout Grid.Row="3" Grid.Column="1">
+            <Label Text="Goals Per Day:" VerticalOptions="Center"></Label>
+            <Entry 
+                x:Name="entryGoalsPerDay" 
+                Text="5" VerticalOptions="Center" 
+                ClearButtonVisibility="WhileEditing" 
+                Keyboard="Numeric" ReturnType="Done" 
+                Margin="7, 0, 0, 0"
+                Unfocused="entryGoalsPerDay_Unfocused">
+            </Entry>
+        </HorizontalStackLayout>
+
+        <Button Grid.Row="3" Grid.Column="2"
             x:Name="btnAddGoals"
             Clicked="btnAddGoals_Clicked"
             Text="Add Goals">

@@ -8,7 +8,7 @@ namespace ChecklistProd.Models
 {
     public class Goal
     {
-        public required int GoalId { get; set; }
+        public int GoalId { get; set; }
         public required string Task { get; set; }
         public int EXP { get; set; }
     }

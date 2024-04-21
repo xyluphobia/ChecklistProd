@@ -5,7 +5,9 @@ namespace ChecklistProd.Views;
 
 public partial class HomePage : ContentPage
 {
-	public HomePage()
+    public int goalsPerDay = 5;
+
+    public HomePage()
 	{
         InitializeComponent();
     }
@@ -14,8 +16,7 @@ public partial class HomePage : ContentPage
     {
         base.OnAppearing();
 
-        var goals = new ObservableCollection<Goal>(GoalRepository.GetGoals());
-        listGoals.ItemsSource = goals;
+        LoadGoals();
     }
 
 
@@ -52,5 +53,42 @@ public partial class HomePage : ContentPage
     private void btnAddGoals_Clicked(object sender,  EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(AddGoalsPage));
+    }
+
+    private void Delete_Clicked(object sender, EventArgs e)
+    {
+        var menuItem = sender as MenuItem; 
+        var goal = menuItem.CommandParameter as Goal;
+
+        GoalRepository.DeleteGoalById(goal.GoalId);
+
+        LoadGoals();
+    }
+
+    private void LoadGoals()
+    {
+        var goals = new ObservableCollection<Goal>(GoalRepository.GetGoals());
+        listGoals.ItemsSource = goals;
+    }
+
+    private void entryGoalsPerDay_Unfocused(object sender, FocusEventArgs e)
+    {
+        if (entryGoalsPerDay.Text == null || entryGoalsPerDay.Text == "")
+        {
+            entryGoalsPerDay.Text = goalsPerDay.ToString();
+        }
+        else
+        {
+            int throwaway;
+            if (Int32.TryParse(entryGoalsPerDay.Text, out throwaway))
+            {
+                goalsPerDay = throwaway;
+            }
+            else
+            {
+                entryGoalsPerDay.Text = goalsPerDay.ToString();
+                DisplayAlert("Error", "Goal count entered must be an Integer.", "Ok");
+            }
+        }
     }
 }

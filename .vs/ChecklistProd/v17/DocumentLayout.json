@@ -3,36 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|c:\\users\\matthew\\desktop\\checklistprod\\checklistprod\\views\\homepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|solutionrelative:checklistprod\\views\\homepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|c:\\users\\matthew\\desktop\\checklistprod\\checklistprod\\views\\homepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|solutionrelative:checklistprod\\views\\homepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|c:\\users\\matthew\\desktop\\checklistprod\\checklistprod\\views\\homepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|solutionrelative:checklistprod\\views\\homepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|c:\\users\\matthew\\desktop\\checklistprod\\checklistprod\\views\\controls\\goalcontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|solutionrelative:checklistprod\\views\\controls\\goalcontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|c:\\users\\matthew\\desktop\\checklistprod\\checklistprod\\views\\controls\\goalcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|solutionrelative:checklistprod\\views\\controls\\goalcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|c:\\users\\matthew\\desktop\\checklistprod\\checklistprod\\views\\editgoalspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|solutionrelative:checklistprod\\views\\editgoalspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|c:\\users\\matthew\\desktop\\checklistprod\\checklistprod\\views\\editgoalspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|solutionrelative:checklistprod\\views\\editgoalspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|c:\\users\\matthew\\desktop\\checklistprod\\checklistprod\\models\\goalrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|solutionrelative:checklistprod\\models\\goalrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|c:\\users\\matthew\\desktop\\checklistprod\\checklistprod\\models\\goal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|solutionrelative:checklistprod\\models\\goal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,34 +26,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "HomePage.xaml",
-              "DocumentMoniker": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\HomePage.xaml",
-              "RelativeDocumentMoniker": "ChecklistProd\\Views\\HomePage.xaml",
-              "ToolTip": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\HomePage.xaml",
-              "RelativeToolTip": "ChecklistProd\\Views\\HomePage.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-20T11:26:05.379Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "HomePage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\HomePage.xaml.cs",
-              "RelativeDocumentMoniker": "ChecklistProd\\Views\\HomePage.xaml.cs",
-              "ToolTip": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\HomePage.xaml.cs",
-              "RelativeToolTip": "ChecklistProd\\Views\\HomePage.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T11:26:04.805Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -78,73 +36,49 @@
               "RelativeDocumentMoniker": "ChecklistProd\\Views\\Controls\\GoalControl.xaml.cs",
               "ToolTip": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\Controls\\GoalControl.xaml.cs",
               "RelativeToolTip": "ChecklistProd\\Views\\Controls\\GoalControl.xaml.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAA5wCUAAAAmAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAowAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T10:50:25.959Z",
+              "WhenOpened": "2024-04-21T00:58:34.461Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "GoalControl.xaml",
-              "DocumentMoniker": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\Controls\\GoalControl.xaml",
-              "RelativeDocumentMoniker": "ChecklistProd\\Views\\Controls\\GoalControl.xaml",
-              "ToolTip": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\Controls\\GoalControl.xaml",
-              "RelativeToolTip": "ChecklistProd\\Views\\Controls\\GoalControl.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-20T10:48:56.796Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EditGoalsPage.xaml",
-              "DocumentMoniker": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\EditGoalsPage.xaml",
-              "RelativeDocumentMoniker": "ChecklistProd\\Views\\EditGoalsPage.xaml",
-              "ToolTip": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\EditGoalsPage.xaml",
-              "RelativeToolTip": "ChecklistProd\\Views\\EditGoalsPage.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-19T22:50:35.371Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EditGoalsPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\EditGoalsPage.xaml.cs",
-              "RelativeDocumentMoniker": "ChecklistProd\\Views\\EditGoalsPage.xaml.cs",
-              "ToolTip": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\EditGoalsPage.xaml.cs",
-              "RelativeToolTip": "ChecklistProd\\Views\\EditGoalsPage.xaml.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAowC0AAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-19T22:44:58.597Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "GoalRepository.cs",
               "DocumentMoniker": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Models\\GoalRepository.cs",
               "RelativeDocumentMoniker": "ChecklistProd\\Models\\GoalRepository.cs",
               "ToolTip": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Models\\GoalRepository.cs",
               "RelativeToolTip": "ChecklistProd\\Models\\GoalRepository.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAAUwCkAAAAMAAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAAowAkAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-19T22:33:58.944Z"
+              "WhenOpened": "2024-04-20T23:58:40.951Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Goal.cs",
-              "DocumentMoniker": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Models\\Goal.cs",
-              "RelativeDocumentMoniker": "ChecklistProd\\Models\\Goal.cs",
-              "ToolTip": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Models\\Goal.cs",
-              "RelativeToolTip": "ChecklistProd\\Models\\Goal.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "HomePage.xaml",
+              "DocumentMoniker": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\HomePage.xaml",
+              "RelativeDocumentMoniker": "ChecklistProd\\Views\\HomePage.xaml",
+              "ToolTip": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\HomePage.xaml",
+              "RelativeToolTip": "ChecklistProd\\Views\\HomePage.xaml",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAADYAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-20T23:35:15.006Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomePage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\HomePage.xaml.cs",
+              "RelativeDocumentMoniker": "ChecklistProd\\Views\\HomePage.xaml.cs",
+              "ToolTip": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\HomePage.xaml.cs",
+              "RelativeToolTip": "ChecklistProd\\Views\\HomePage.xaml.cs",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAmwFYAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-19T22:31:01.818Z"
+              "WhenOpened": "2024-04-20T11:26:04.805Z",
+              "EditorCaption": ""
             }
           ]
         }

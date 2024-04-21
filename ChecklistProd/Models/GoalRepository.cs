@@ -34,6 +34,15 @@ namespace ChecklistProd.Models
             return null;
         }
 
+        public static void DeleteGoalById(int goalId)
+        {
+            var goal = _goals.FirstOrDefault(x =>x.GoalId == goalId);
+            if (goal != null)
+            {
+                _goals.Remove(goal);
+            }
+        }
+
         public static void UpdateGoal(int goalId, Goal goal)
         {
             if (goalId != goal.GoalId) return;
@@ -45,5 +54,13 @@ namespace ChecklistProd.Models
                 goalToUpdate.EXP = goal.EXP;
             }
         }
+
+        public static void AddGoal(Goal goal)
+        {
+            var maxId = _goals.Max(x => x.GoalId);
+            goal.GoalId = maxId + 1; 
+            _goals.Add(goal);
+        }
+
     }
 }
