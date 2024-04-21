@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using System.IO;
+using System.Text.Json;
+using System.Diagnostics;
+using ChecklistProd.Views;
 
 namespace ChecklistProd.Models
 {
@@ -15,7 +19,8 @@ namespace ChecklistProd.Models
             new Goal { GoalId = 1, Task = "Work on Movement", EXP = 20, Status = "incomplete" },
             new Goal { GoalId = 2, Task = "Progress Uni", EXP = 10, Status = "incomplete" },
             new Goal { GoalId = 3, Task = "Progress Career", EXP = 10, Status = "incomplete" },
-            new Goal { GoalId = 4, Task = "Read Something", EXP = 10, Status = "incomplete" }
+            new Goal { GoalId = 4, Task = "Read Something", EXP = 10, Status = "incomplete" },
+            new Goal { GoalId = 5, Task = "Learn Lambda Expressions in C#", EXP = 10, Status = "incomplete" }
         };
 
         public static List<Goal> GetGoals() => _goals;
@@ -68,6 +73,8 @@ namespace ChecklistProd.Models
                 else
                     goalToUpdate.Color= Colors.Red;
             }
+
+            SaveData();
         }
 
         public static void AddGoal(Goal goal)
@@ -75,11 +82,34 @@ namespace ChecklistProd.Models
             var maxId = _goals.Max(x => x.GoalId);
             goal.GoalId = maxId + 1; 
             _goals.Add(goal);
+
+            SaveData();
         }
 
-        public static async Task SaveData()
+        public static void SaveData()
         {
-            
+            var path = FileSystem.Current.AppDataDirectory;
+            var fullPath = Path.Combine(path, "GoalStorage.json");
+
+            var serializedData = JsonSerializer.Serialize(_goals);
+          
+            File.WriteAllText(fullPath, serializedData);
+        }
+
+        public static async void ReadData()
+        {
+            var path = FileSystem.Current.AppDataDirectory;
+            var fullPath = Path.Combine(path, "GoalStorage.json");
+
+            var rawData = File.ReadAllText(fullPath);
+
+            try {
+                _goals = JsonSerializer.Deserialize<List<Goal>>(rawData);
+            }
+            catch (Exception e) { 
+                _goals = new List<Goal>();
+                Debug.WriteLine("Exception", e.Message, "Ok");
+            }
         }
     }
 }

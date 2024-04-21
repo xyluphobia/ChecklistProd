@@ -65,6 +65,8 @@ obj\Release\net8.0-android\android-arm64\aot\System.Runtime.InteropServices.dll.
 obj\Release\net8.0-android\android-arm64\aot\System.Runtime.Loader.dll.so
 obj\Release\net8.0-android\android-arm64\aot\System.Runtime.dll.so
 obj\Release\net8.0-android\android-arm64\aot\System.Security.Cryptography.dll.so
+obj\Release\net8.0-android\android-arm64\aot\System.Text.Encodings.Web.dll.so
+obj\Release\net8.0-android\android-arm64\aot\System.Text.Json.dll.so
 obj\Release\net8.0-android\android-arm64\aot\System.Text.RegularExpressions.dll.so
 obj\Release\net8.0-android\android-arm64\aot\System.Threading.Thread.dll.so
 obj\Release\net8.0-android\android-arm64\aot\System.Threading.dll.so

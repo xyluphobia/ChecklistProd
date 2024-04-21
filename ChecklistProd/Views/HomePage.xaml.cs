@@ -4,6 +4,13 @@ using System.Drawing;
 
 namespace ChecklistProd.Views;
 
+// https://www.youtube.com/watch?app=desktop&v=eeJske-Tu40&ab_channel=SingletonSean useful for making persistent login sessions
+/* Saving Options:
+ * Preferences:  (use for simple data, dont use for objs large things)
+ *   Perefernces.Set("keyname", data);
+ *   Preferences.Get("keyname", idk);
+ */
+
 public partial class HomePage : ContentPage
 {
     public int goalsPerDay = 5;
@@ -74,7 +81,7 @@ public partial class HomePage : ContentPage
         else
             progressLevelBarByRatio(1f, goal);
 
-        if (string.Equals(goal.Status, "recomplete"))
+        if (string.Equals(goal.Status, "recomplete") || string.Equals(goal.Status, "complete"))
             goal.Status = "recomplete";
         else
             goal.Status = "complete";

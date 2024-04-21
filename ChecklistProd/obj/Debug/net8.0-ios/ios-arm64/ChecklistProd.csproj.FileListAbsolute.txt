@@ -255,7 +255,6 @@ C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-ios\ios-ar
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-ios\ios-arm64\libxamarin-dotnet-nativeaot.a
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-ios\ios-arm64\libxamarin-dotnet.a
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-ios\ios-arm64\libxamarin-dotnet.dylib
-C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-ios\ios-arm64\build-signature\signature
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-ios\ios-arm64\mauiimage.inputs
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-ios\ios-arm64\mauifont.inputs
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-ios\ios-arm64\mauisplash.inputs
