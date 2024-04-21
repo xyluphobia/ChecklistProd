@@ -175,6 +175,15 @@ public partial class HomePage : ContentPage
     private void LoadGoals()
     {
         var goals = new ObservableCollection<Goal>(GoalRepository.GetGoals());
+
+        foreach (Goal goal in goals)            // this loops only purpose is to make goals with exp values greater than 10 have their colour be purple
+        {                                       // this is probably not worth and should be removed later
+            if (goal.EXP > 10)
+            {
+                GoalRepository.UpdateGoal(goal.GoalId, goal);
+            }
+        }
+
         listGoals.ItemsSource = goals;
     }
 

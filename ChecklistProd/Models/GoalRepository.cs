@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace ChecklistProd.Models
 {
@@ -61,11 +62,13 @@ namespace ChecklistProd.Models
                     goalToUpdate.Color = Colors.YellowGreen;
                 else if (string.Equals(goalToUpdate.Status, "recomplete"))
                     goalToUpdate.Color = Colors.Gold;
+                else if (string.Equals(goalToUpdate.Status, "incomplete") || goalToUpdate.Status == null)
+                    if (goalToUpdate.EXP > 10)
+                        goalToUpdate.Color = Colors.MediumPurple;
                 else
                     goalToUpdate.Color= Colors.Red;
             }
         }
-
 
         public static void AddGoal(Goal goal)
         {
@@ -74,5 +77,9 @@ namespace ChecklistProd.Models
             _goals.Add(goal);
         }
 
+        public static async Task SaveData()
+        {
+            
+        }
     }
 }
