@@ -10,11 +10,11 @@ namespace ChecklistProd.Models
     {
         public static List<Goal> _goals = new List<Goal>()
         {
-            new Goal { GoalId = 0, Task = "Work on Aim", EXP = 10 },
-            new Goal { GoalId = 1, Task = "Work on Movement", EXP = 20 },
-            new Goal { GoalId = 2, Task = "Progress Uni", EXP = 10 },
-            new Goal { GoalId = 3, Task = "Progress Career", EXP = 10 },
-            new Goal { GoalId = 4, Task = "Read Something", EXP = 10 }
+            new Goal { GoalId = 0, Task = "Work on Aim", EXP = 10, Status = "incomplete" },
+            new Goal { GoalId = 1, Task = "Work on Movement", EXP = 20, Status = "incomplete" },
+            new Goal { GoalId = 2, Task = "Progress Uni", EXP = 10, Status = "incomplete" },
+            new Goal { GoalId = 3, Task = "Progress Career", EXP = 10, Status = "incomplete" },
+            new Goal { GoalId = 4, Task = "Read Something", EXP = 10, Status = "incomplete" }
         };
 
         public static List<Goal> GetGoals() => _goals;
@@ -27,7 +27,8 @@ namespace ChecklistProd.Models
                 {
                     GoalId = goalId,
                     Task = goal.Task,
-                    EXP = goal.EXP
+                    EXP = goal.EXP,
+                    Status = goal.Status
                 };
             }
 
@@ -52,8 +53,19 @@ namespace ChecklistProd.Models
             {
                 goalToUpdate.Task = goal.Task;
                 goalToUpdate.EXP = goal.EXP;
+                goalToUpdate.Status = goal.Status;
+                
+                if (string.Equals(goalToUpdate.Status, "complete"))
+                    goalToUpdate.Color = Colors.Green;
+                else if (string.Equals(goalToUpdate.Status, "partial"))
+                    goalToUpdate.Color = Colors.YellowGreen;
+                else if (string.Equals(goalToUpdate.Status, "recomplete"))
+                    goalToUpdate.Color = Colors.Gold;
+                else
+                    goalToUpdate.Color= Colors.Red;
             }
         }
+
 
         public static void AddGoal(Goal goal)
         {

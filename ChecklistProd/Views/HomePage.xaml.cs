@@ -1,11 +1,14 @@
 using ChecklistProd.Models;
 using System.Collections.ObjectModel;
+using System.Drawing;
 
 namespace ChecklistProd.Views;
 
 public partial class HomePage : ContentPage
 {
     public int goalsPerDay = 5;
+    public float currentLevelPercent = 0f;
+    public int currentLevel = 0;
 
     public HomePage()
 	{
@@ -18,10 +21,6 @@ public partial class HomePage : ContentPage
 
         LoadGoals();
     }
-
-
-    // progress to 75% over 500ms using linear easing
-    //progressBarLevel.ProgressTo(0.75, 500, Easing.Linear);
 
     /* 
      * Desired logic for and relating to goals:
@@ -65,11 +64,61 @@ public partial class HomePage : ContentPage
         LoadGoals();
     }
 
-    private void LoadGoals()
+    private void GoalComplete_Clicked(object sender, EventArgs e)
     {
-        var goals = new ObservableCollection<Goal>(GoalRepository.GetGoals());
-        listGoals.ItemsSource = goals;
+        var menuItem = sender as MenuItem;
+        var goal = GoalRepository.GetGoalById((int)menuItem.CommandParameter);
+
+        if (string.Equals(goal.Status, "partial"))
+            progressLevelBarByRatio(0.5f, goal);
+        else
+            progressLevelBarByRatio(1f, goal);
+
+        if (string.Equals(goal.Status, "recomplete"))
+            goal.Status = "recomplete";
+        else
+            goal.Status = "complete";
+        GoalRepository.UpdateGoal(goal.GoalId, goal);
+        LoadGoals();
+
+        var textCell = menuItem.Parent as TextCell;  // This doesnt work because after calling 'LoadGoals()' the cells are different and this textcell is null. Need to save color to goal.
+        textCell.TextColor = Colors.Green;
     }
+
+    private void GoalPartialComplete_Clicked(object sender, EventArgs e)
+    {
+        var menuItem = sender as MenuItem;
+        var goal = GoalRepository.GetGoalById((int)menuItem.CommandParameter);
+
+        progressLevelBarByRatio(0.5f, goal);
+
+        if (string.Equals(goal.Status, "partial"))
+            goal.Status = "complete";
+        else if (string.Equals(goal.Status, "recomplete"))
+            goal.Status = "recomplete";
+        else
+            goal.Status = "partial";
+
+        GoalRepository.UpdateGoal(goal.GoalId, goal);
+        LoadGoals();
+    }
+
+    private void GoalReComplete_Clicked(object sender, EventArgs e)
+    {
+        var menuItem = sender as MenuItem;
+        var goal = GoalRepository.GetGoalById((int)menuItem.CommandParameter);
+
+        if (!string.Equals(goal.Status, "complete"))
+            return;
+
+        progressLevelBarByRatio(1f, goal);
+
+        goal.Status = "recomplete";
+        GoalRepository.UpdateGoal(goal.GoalId, goal);
+        LoadGoals();
+
+    }
+
 
     private void entryGoalsPerDay_Unfocused(object sender, FocusEventArgs e)
     {
@@ -91,4 +140,42 @@ public partial class HomePage : ContentPage
             }
         }
     }
+
+    private void LevelUp()
+    {
+        progressBarLevel.ProgressTo(0, 0, Easing.Linear);
+        currentLevelPercent = currentLevelPercent - 1;
+        progressBarLevel.ProgressTo(currentLevelPercent, 500, Easing.CubicOut);
+
+        currentLevel += 1;
+        lblCurrentLevel.Text = currentLevel.ToString();
+    }
+
+    private async void progressLevelBarByRatio(float ratio, Goal? goal)
+    {
+        // goalsperday x 10 is the full amount of exp needed per level
+        // find the percent the exp gained is of goalsperday x10
+
+        int EXPNeeded = goalsPerDay * 10;
+        float percentGainedForCompletion = (((goal.EXP * 100) / EXPNeeded) * .01f) * ratio;
+
+        currentLevelPercent = currentLevelPercent + percentGainedForCompletion;
+
+        if (currentLevelPercent > .99f)
+        {
+            await progressBarLevel.ProgressTo(1f, 500, Easing.CubicOut);
+            LevelUp();
+        }
+        else
+        {
+            await progressBarLevel.ProgressTo(currentLevelPercent, 500, Easing.CubicOut);
+        }
+    }
+
+    private void LoadGoals()
+    {
+        var goals = new ObservableCollection<Goal>(GoalRepository.GetGoals());
+        listGoals.ItemsSource = goals;
+    }
+
 }
