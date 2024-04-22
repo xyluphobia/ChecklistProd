@@ -5,7 +5,6 @@ C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Release\net8.0-windows1
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Release\net8.0-windows10.0.19041.0\win10-x64\ChecklistProd.dll
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Release\net8.0-windows10.0.19041.0\win10-x64\ChecklistProd.pdb
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Release\net8.0-windows10.0.19041.0\win10-x64\resources.pri
-C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Release\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Release\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Configuration.dll
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Release\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Release\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.DependencyInjection.dll
@@ -174,5 +173,6 @@ C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Release\net8.0-windows1
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Release\net8.0-windows10.0.19041.0\win10-x64\qualifiers.txt
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Release\net8.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Release\net8.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
-C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Release\net8.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Release\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.Management.Deployment.Projection.dll
+C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Release\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml
+C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Release\net8.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt

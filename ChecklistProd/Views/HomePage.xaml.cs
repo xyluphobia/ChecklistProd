@@ -20,6 +20,7 @@ public partial class HomePage : ContentPage
     public HomePage()
 	{
         InitializeComponent();
+        GoalRepository.ReadData();
     }
 
     protected override void OnAppearing()
@@ -87,9 +88,6 @@ public partial class HomePage : ContentPage
             goal.Status = "complete";
         GoalRepository.UpdateGoal(goal.GoalId, goal);
         LoadGoals();
-
-        var textCell = menuItem.Parent as TextCell;  // This doesnt work because after calling 'LoadGoals()' the cells are different and this textcell is null. Need to save color to goal.
-        textCell.TextColor = Colors.Green;
     }
 
     private void GoalPartialComplete_Clicked(object sender, EventArgs e)
@@ -156,6 +154,8 @@ public partial class HomePage : ContentPage
 
         currentLevel += 1;
         lblCurrentLevel.Text = currentLevel.ToString();
+
+        GoalRepository.SaveData();
     }
 
     private async void progressLevelBarByRatio(float ratio, Goal? goal)
@@ -177,6 +177,8 @@ public partial class HomePage : ContentPage
         {
             await progressBarLevel.ProgressTo(currentLevelPercent, 500, Easing.CubicOut);
         }
+
+        GoalRepository.SaveData();
     }
 
     private void LoadGoals()

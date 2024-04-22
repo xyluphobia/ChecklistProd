@@ -20,8 +20,9 @@ public partial class AddGoalsPage : ContentPage
         {
             Task = goalCtrl.Task,
             EXP = Int32.Parse(goalCtrl.EXP),
-            Status = "incomplete"
-        });
+            Status = "incomplete",
+            GoalColor = "Red",
+    });
 
         Shell.Current.GoToAsync($"//{nameof(HomePage)}");
     }

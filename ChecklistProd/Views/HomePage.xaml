@@ -35,7 +35,7 @@
                     <TextCell
                         Text="{Binding Task}"
                         Detail="{Binding EXP}"
-                        TextColor="{Binding Color}">
+                        TextColor="{Binding GoalColor}">
                         <TextCell.ContextActions>
                             <MenuItem Text="Complete" Clicked="GoalComplete_Clicked" CommandParameter="{Binding GoalId}"></MenuItem>
                             <MenuItem Text="Partial Complete" Clicked="GoalPartialComplete_Clicked" CommandParameter="{Binding GoalId}"></MenuItem>

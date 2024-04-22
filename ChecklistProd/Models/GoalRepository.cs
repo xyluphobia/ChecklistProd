@@ -13,18 +13,9 @@ namespace ChecklistProd.Models
 {
     public static class GoalRepository
     {
-        public static List<Goal> _goals = new List<Goal>()
-        {
-            new Goal { GoalId = 0, Task = "Work on Aim", EXP = 10, Status = "incomplete" },
-            new Goal { GoalId = 1, Task = "Work on Movement", EXP = 20, Status = "incomplete" },
-            new Goal { GoalId = 2, Task = "Progress Uni", EXP = 10, Status = "incomplete" },
-            new Goal { GoalId = 3, Task = "Progress Career", EXP = 10, Status = "incomplete" },
-            new Goal { GoalId = 4, Task = "Read Something", EXP = 10, Status = "incomplete" },
-            new Goal { GoalId = 5, Task = "Learn Lambda Expressions in C#", EXP = 10, Status = "incomplete" }
-        };
-
+        public static List<Goal> _goals = new List<Goal>(){};
         public static List<Goal> GetGoals() => _goals;
-        public static Goal GetGoalById(int goalId)
+        public static Goal? GetGoalById(int goalId)
         {
             var goal = _goals.FirstOrDefault(x => x.GoalId == goalId);
             if (goal != null)
@@ -34,7 +25,8 @@ namespace ChecklistProd.Models
                     GoalId = goalId,
                     Task = goal.Task,
                     EXP = goal.EXP,
-                    Status = goal.Status
+                    Status = goal.Status,
+                    GoalColor = goal.GoalColor,
                 };
             }
 
@@ -48,6 +40,8 @@ namespace ChecklistProd.Models
             {
                 _goals.Remove(goal);
             }
+
+            SaveData();
         }
 
         public static void UpdateGoal(int goalId, Goal goal)
@@ -62,16 +56,18 @@ namespace ChecklistProd.Models
                 goalToUpdate.Status = goal.Status;
                 
                 if (string.Equals(goalToUpdate.Status, "complete"))
-                    goalToUpdate.Color = Colors.Green;
+                    goalToUpdate.GoalColor = "Green";
                 else if (string.Equals(goalToUpdate.Status, "partial"))
-                    goalToUpdate.Color = Colors.YellowGreen;
+                    goalToUpdate.GoalColor = "YellowGreen";
                 else if (string.Equals(goalToUpdate.Status, "recomplete"))
-                    goalToUpdate.Color = Colors.Gold;
+                    goalToUpdate.GoalColor = "Gold";
                 else if (string.Equals(goalToUpdate.Status, "incomplete") || goalToUpdate.Status == null)
                     if (goalToUpdate.EXP > 10)
-                        goalToUpdate.Color = Colors.MediumPurple;
+                        goalToUpdate.GoalColor = "MediumPurple";
+                    else
+                        goalToUpdate.GoalColor = "Red";
                 else
-                    goalToUpdate.Color= Colors.Red;
+                    goalToUpdate.GoalColor = "Red";
             }
 
             SaveData();
@@ -79,7 +75,10 @@ namespace ChecklistProd.Models
 
         public static void AddGoal(Goal goal)
         {
-            var maxId = _goals.Max(x => x.GoalId);
+            var maxId = 0;
+            if (_goals.Count > 0)
+                maxId = _goals.Max(x => x.GoalId);
+
             goal.GoalId = maxId + 1; 
             _goals.Add(goal);
 
@@ -88,20 +87,27 @@ namespace ChecklistProd.Models
 
         public static void SaveData()
         {
+
+
             var path = FileSystem.Current.AppDataDirectory;
-            var fullPath = Path.Combine(path, "GoalStorage.json");
+            var fullPathGoals = Path.Combine(path, "GoalStorage.json");
 
             var serializedData = JsonSerializer.Serialize(_goals);
           
-            File.WriteAllText(fullPath, serializedData);
+            File.WriteAllText(fullPathGoals, serializedData);
         }
 
-        public static async void ReadData()
+        public static void ReadData()
         {
-            var path = FileSystem.Current.AppDataDirectory;
-            var fullPath = Path.Combine(path, "GoalStorage.json");
 
-            var rawData = File.ReadAllText(fullPath);
+
+            var path = FileSystem.Current.AppDataDirectory;
+            var fullPathGoals = Path.Combine(path, "GoalStorage.json");
+
+            if (!File.Exists(fullPathGoals))
+                return;
+
+            var rawData = File.ReadAllText(fullPathGoals);
 
             try {
                 _goals = JsonSerializer.Deserialize<List<Goal>>(rawData);

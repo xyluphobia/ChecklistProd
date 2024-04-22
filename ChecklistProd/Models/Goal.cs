@@ -12,6 +12,6 @@ namespace ChecklistProd.Models
         public required string Task { get; set; }
         public int EXP { get; set; } = 10;
         public string Status { get; set; } = "incomplete";
-        public Color Color { get; set; } = Colors.Red;
+        public string GoalColor { get; set; } = "Red";
     }
 }
