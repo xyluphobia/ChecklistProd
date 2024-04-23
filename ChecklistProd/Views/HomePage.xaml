@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ChecklistProd.Views.HomePage"
-             Title="Home">
+             xmlns:progressBar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.Progressbar"
+                Title="Home">
     
-    <Grid RowDefinitions="20, 20, *, 50"
+    <Grid RowDefinitions="20, 30, *, 50"
           ColumnDefinitions="100, *, 100"
           Margin="20, 20, 20, 20">
         
@@ -14,11 +15,24 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <ProgressBar Grid.Row="1" Grid.Column="1"
-            x:Name="progressBarLevel"
+        <progressBar:SfLinearProgressBar Grid.Row="1" Grid.Column="1" x:Name="progressBarLevel"
+            ProgressHeight="20" SecondaryProgressHeight="20" TrackHeight="20"
+            ProgressCornerRadius="10" SecondaryProgressCornerRadius="10" TrackCornerRadius="10"
             Progress="0"
-            ProgressColor="Orange"
-        ></ProgressBar>
+            SecondaryProgress="20"
+            AnimationEasing="{x:Static Easing.CubicOut}"
+            AnimationDuration="1000"
+            Minimum="0" Maximum="100"
+            SegmentCount="5" SegmentGapWidth="12" BackgroundColor="Transparent"
+            SecondaryProgressFill="#d0beb9"
+            TrackFill="#957e77">
+            <progressBar:SfLinearProgressBar.GradientStops>
+                <progressBar:ProgressGradientStop Color="#00bdaf" Value="0" />
+                <progressBar:ProgressGradientStop Color="#2f7ecc" Value="25"/>
+                <progressBar:ProgressGradientStop Color="#e9648e" Value="50"/>
+                <progressBar:ProgressGradientStop Color="#fbb78a" Value="75"/>
+            </progressBar:SfLinearProgressBar.GradientStops>
+        </progressBar:SfLinearProgressBar>
 
         <ListView Grid.Row="2" Grid.Column="1"
             x:Name="listGoals" 
@@ -63,6 +77,14 @@
             x:Name="btnAddGoals"
             Clicked="btnAddGoals_Clicked"
             Text="Add Goals">
+        </Button>
+        
+        <Button Grid.Row="3" Grid.Column="1"
+            x:Name="btnReset"
+            Clicked="btnReset_Clicked"
+            Text="Reset"
+            VerticalOptions="Center"
+            WidthRequest="100">
         </Button>
 
     </Grid>

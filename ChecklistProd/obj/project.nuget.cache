@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "m4FaGLOebB6OGGqn+SGf4etKnZoAMzSZ8HeKtNRBxIy+CAjWlzaGPDSM1EC7bEh70UyygCxyfNrmzxTGrs/cow==",
+  "dgSpecHash": "XidTjGLSr8zaAO+yYmJ+5ohWzxRoiy0KS2jpg1Nx02vBabhMqAlt6UGQqB43GI40PfFYBtmQmHUWHoHO2gJyGg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\ChecklistProd.csproj",
   "expectedPackageFiles": [
@@ -28,6 +28,9 @@
     "C:\\Users\\Matthew\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.4\\microsoft.net.illink.tasks.8.0.4.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages\\microsoft.windows.sdk.buildtools\\10.0.22621.756\\microsoft.windows.sdk.buildtools.10.0.22621.756.nupkg.sha512",
     "C:\\Users\\Matthew\\.nuget\\packages\\microsoft.windowsappsdk\\1.5.240311000\\microsoft.windowsappsdk.1.5.240311000.nupkg.sha512",
+    "C:\\Users\\Matthew\\.nuget\\packages\\syncfusion.licensing\\25.1.40\\syncfusion.licensing.25.1.40.nupkg.sha512",
+    "C:\\Users\\Matthew\\.nuget\\packages\\syncfusion.maui.core\\25.1.40\\syncfusion.maui.core.25.1.40.nupkg.sha512",
+    "C:\\Users\\Matthew\\.nuget\\packages\\syncfusion.maui.progressbar\\25.1.40\\syncfusion.maui.progressbar.25.1.40.nupkg.sha512",
     "C:\\Users\\Matthew\\.nuget\\packages\\xamarin.android.glide\\4.15.1.2\\xamarin.android.glide.4.15.1.2.nupkg.sha512",
     "C:\\Users\\Matthew\\.nuget\\packages\\xamarin.android.glide.annotations\\4.15.1.2\\xamarin.android.glide.annotations.4.15.1.2.nupkg.sha512",
     "C:\\Users\\Matthew\\.nuget\\packages\\xamarin.android.glide.disklrucache\\4.15.1.2\\xamarin.android.glide.disklrucache.4.15.1.2.nupkg.sha512",

@@ -12,6 +12,7 @@
           "Microsoft.Extensions.Logging.Debug": "8.0.0",
           "Microsoft.Maui.Controls": "8.0.20",
           "Microsoft.Maui.Controls.Compatibility": "8.0.20",
+          "Syncfusion.Maui.ProgressBar": "25.1.40",
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.31"
         },
         "runtime": {
@@ -435,6 +436,36 @@
             "fileVersion": "1.5.0.0"
           }
         }
+      },
+      "Syncfusion.Licensing/25.1.40": {
+        "runtime": {
+          "lib/net8.0/Syncfusion.Licensing.dll": {
+            "assemblyVersion": "25.1.40.0",
+            "fileVersion": "25.1.40.0"
+          }
+        }
+      },
+      "Syncfusion.Maui.Core/25.1.40": {
+        "dependencies": {
+          "Syncfusion.Licensing": "25.1.40"
+        },
+        "runtime": {
+          "lib/net8.0-windows10.0.19041.0/Syncfusion.Maui.Core.dll": {
+            "assemblyVersion": "25.1.40.0",
+            "fileVersion": "25.1.40.0"
+          }
+        }
+      },
+      "Syncfusion.Maui.ProgressBar/25.1.40": {
+        "dependencies": {
+          "Syncfusion.Maui.Core": "25.1.40"
+        },
+        "runtime": {
+          "lib/net8.0-windows10.0.19041.0/Syncfusion.Maui.ProgressBar.dll": {
+            "assemblyVersion": "25.1.40.0",
+            "fileVersion": "25.1.40.0"
+          }
+        }
       }
     }
   },
@@ -602,6 +633,27 @@
       "sha512": "sha512-7AYbQt/XPSbsOwLWeyP+TquJGFwfDsxRRutWZJEKhoyj9pkGDI4VgtX+Uy030PzkuuKsCm1Fz8c8H7saRyAoPg==",
       "path": "microsoft.windowsappsdk/1.5.240311000",
       "hashPath": "microsoft.windowsappsdk.1.5.240311000.nupkg.sha512"
+    },
+    "Syncfusion.Licensing/25.1.40": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7JTbApWFw1hIsdKPZnNeBmhCwgw2YteoIj6jIO+7MqO0H7Vn1mZiwfPdk9/xUTiphGamebH7s0i8xCh6pz4dBw==",
+      "path": "syncfusion.licensing/25.1.40",
+      "hashPath": "syncfusion.licensing.25.1.40.nupkg.sha512"
+    },
+    "Syncfusion.Maui.Core/25.1.40": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DN6ajalKCpkm6t3MxBRZWnfg1N2fTz8z4PFCbHT3juwURiUrCHa+og8qu3s1pfZh8OW5wQrSbDgJiWqck2m7rg==",
+      "path": "syncfusion.maui.core/25.1.40",
+      "hashPath": "syncfusion.maui.core.25.1.40.nupkg.sha512"
+    },
+    "Syncfusion.Maui.ProgressBar/25.1.40": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Iam1d+dpRPP4gX9ehiL2/as6yeX3WAOXndGOaNGYXFAPkTagqiRY0QbPkdbFEdNv3YstnR4JfJW4z9n8DfFTwQ==",
+      "path": "syncfusion.maui.progressbar/25.1.40",
+      "hashPath": "syncfusion.maui.progressbar.25.1.40.nupkg.sha512"
     }
   }
 }

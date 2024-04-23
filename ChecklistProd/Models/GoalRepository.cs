@@ -87,32 +87,30 @@ namespace ChecklistProd.Models
 
         public static void SaveData()
         {
-
-
             var path = FileSystem.Current.AppDataDirectory;
             var fullPathGoals = Path.Combine(path, "GoalStorage.json");
 
-            var serializedData = JsonSerializer.Serialize(_goals);
-          
-            File.WriteAllText(fullPathGoals, serializedData);
+            var serializedDataGoals = JsonSerializer.Serialize(_goals);
+
+            File.WriteAllText(fullPathGoals, serializedDataGoals);
         }
 
         public static void ReadData()
         {
-
-
             var path = FileSystem.Current.AppDataDirectory;
             var fullPathGoals = Path.Combine(path, "GoalStorage.json");
 
             if (!File.Exists(fullPathGoals))
                 return;
 
-            var rawData = File.ReadAllText(fullPathGoals);
+            var rawDataGoals = File.ReadAllText(fullPathGoals);
 
-            try {
-                _goals = JsonSerializer.Deserialize<List<Goal>>(rawData);
+            try
+            {
+                _goals = JsonSerializer.Deserialize<List<Goal>>(rawDataGoals);
             }
-            catch (Exception e) { 
+            catch (Exception e)
+            {
                 _goals = new List<Goal>();
                 Debug.WriteLine("Exception", e.Message, "Ok");
             }

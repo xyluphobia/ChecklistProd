@@ -83,6 +83,10 @@
               "target": "Package",
               "version": "[8.0.4, )",
               "autoReferenced": true
+            },
+            "Syncfusion.Maui.ProgressBar": {
+              "target": "Package",
+              "version": "[25.1.40, )"
             }
           },
           "imports": [
@@ -126,6 +130,10 @@
               "target": "Package",
               "version": "[8.0.4, )",
               "autoReferenced": true
+            },
+            "Syncfusion.Maui.ProgressBar": {
+              "target": "Package",
+              "version": "[25.1.40, )"
             }
           },
           "imports": [
@@ -169,6 +177,10 @@
               "target": "Package",
               "version": "[8.0.4, )",
               "autoReferenced": true
+            },
+            "Syncfusion.Maui.ProgressBar": {
+              "target": "Package",
+              "version": "[25.1.40, )"
             }
           },
           "imports": [
@@ -207,6 +219,10 @@
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
               "version": "[8.0.20, )"
+            },
+            "Syncfusion.Maui.ProgressBar": {
+              "target": "Package",
+              "version": "[25.1.40, )"
             }
           },
           "imports": [

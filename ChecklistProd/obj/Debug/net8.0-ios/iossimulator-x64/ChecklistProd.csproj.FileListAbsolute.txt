@@ -311,3 +311,4 @@ C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-ios\iossim
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-ios\iossimulator-x64\ChecklistProd.pdb
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-ios\iossimulator-x64\ChecklistProd.genruntimeconfig.cache
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-ios\iossimulator-x64\ref\ChecklistProd.dll
+C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-ios\iossimulator-x64\build-signature\signature

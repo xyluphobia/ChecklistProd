@@ -1,6 +1,9 @@
 using ChecklistProd.Models;
+using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Drawing;
+using System.Text.Json;
 
 namespace ChecklistProd.Views;
 
@@ -14,11 +17,11 @@ namespace ChecklistProd.Views;
 public partial class HomePage : ContentPage
 {
     public int goalsPerDay = 5;
-    public float currentLevelPercent = 0f;
+    public double currentLevelPercent = 0d;
     public int currentLevel = 0;
 
     public HomePage()
-	{
+    {
         InitializeComponent();
         GoalRepository.ReadData();
     }
@@ -28,6 +31,7 @@ public partial class HomePage : ContentPage
         base.OnAppearing();
 
         LoadGoals();
+        UpdateReadData();
     }
 
     /* 
@@ -57,14 +61,14 @@ public partial class HomePage : ContentPage
         listGoals.SelectedItem = null;
     }
 
-    private void btnAddGoals_Clicked(object sender,  EventArgs e)
+    private void btnAddGoals_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(AddGoalsPage));
     }
 
     private void Delete_Clicked(object sender, EventArgs e)
     {
-        var menuItem = sender as MenuItem; 
+        var menuItem = sender as MenuItem;
         var goal = menuItem.CommandParameter as Goal;
 
         GoalRepository.DeleteGoalById(goal.GoalId);
@@ -78,9 +82,9 @@ public partial class HomePage : ContentPage
         var goal = GoalRepository.GetGoalById((int)menuItem.CommandParameter);
 
         if (string.Equals(goal.Status, "partial"))
-            progressLevelBarByRatio(0.5f, goal);
+            progressLevelBarByRatio(0.5d, goal);
         else
-            progressLevelBarByRatio(1f, goal);
+            progressLevelBarByRatio(1d, goal);
 
         if (string.Equals(goal.Status, "recomplete") || string.Equals(goal.Status, "complete"))
             goal.Status = "recomplete";
@@ -95,7 +99,7 @@ public partial class HomePage : ContentPage
         var menuItem = sender as MenuItem;
         var goal = GoalRepository.GetGoalById((int)menuItem.CommandParameter);
 
-        progressLevelBarByRatio(0.5f, goal);
+        progressLevelBarByRatio(0.5d, goal);
 
         if (string.Equals(goal.Status, "partial"))
             goal.Status = "complete";
@@ -116,12 +120,11 @@ public partial class HomePage : ContentPage
         if (!string.Equals(goal.Status, "complete"))
             return;
 
-        progressLevelBarByRatio(1f, goal);
+        progressLevelBarByRatio(1d, goal);
 
         goal.Status = "recomplete";
         GoalRepository.UpdateGoal(goal.GoalId, goal);
         LoadGoals();
-
     }
 
 
@@ -137,6 +140,7 @@ public partial class HomePage : ContentPage
             if (Int32.TryParse(entryGoalsPerDay.Text, out throwaway))
             {
                 goalsPerDay = throwaway;
+                SaveLocalData();
             }
             else
             {
@@ -148,37 +152,53 @@ public partial class HomePage : ContentPage
 
     private void LevelUp()
     {
-        progressBarLevel.ProgressTo(0, 0, Easing.Linear);
-        currentLevelPercent = currentLevelPercent - 1;
-        progressBarLevel.ProgressTo(currentLevelPercent, 500, Easing.CubicOut);
+        while (currentLevelPercent > 99) 
+        {
+            progressBarLevel.SetProgress(0d, 1d, Easing.Linear);
+            currentLevelPercent = currentLevelPercent - 100d;
+            
+            currentLevel += 1;
+            lblCurrentLevel.Text = currentLevel.ToString();
 
-        currentLevel += 1;
-        lblCurrentLevel.Text = currentLevel.ToString();
+            GoalRepository.SaveData();
+            SaveLocalData();
 
-        GoalRepository.SaveData();
+            if (currentLevelPercent > 0)
+                progressBarLevel.Progress = currentLevelPercent;
+        }
+
+        progressBarLevel.SecondaryProgress = currentLevelPercent + (100 / goalsPerDay);
     }
 
-    private async void progressLevelBarByRatio(float ratio, Goal? goal)
+    private async void progressLevelBarByRatio(double ratio, Goal? goal)
     {
         // goalsperday x 10 is the full amount of exp needed per level
         // find the percent the exp gained is of goalsperday x10
 
         int EXPNeeded = goalsPerDay * 10;
-        float percentGainedForCompletion = (((goal.EXP * 100) / EXPNeeded) * .01f) * ratio;
+        double percentGainedForCompletion = ((goal.EXP * 100) / EXPNeeded) * ratio;
 
         currentLevelPercent = currentLevelPercent + percentGainedForCompletion;
+        double savedPercent = currentLevelPercent;
 
-        if (currentLevelPercent > .99f)
+        if (currentLevelPercent > 99)
         {
-            await progressBarLevel.ProgressTo(1f, 500, Easing.CubicOut);
+            await Task.Run(() => 
+            { 
+                progressBarLevel.Progress = 100; 
+                Task.Delay(1000).Wait(); 
+            });
+            currentLevelPercent = savedPercent;
             LevelUp();
         }
         else
         {
-            await progressBarLevel.ProgressTo(currentLevelPercent, 500, Easing.CubicOut);
+            progressBarLevel.Progress = currentLevelPercent;
+            progressBarLevel.SecondaryProgress = currentLevelPercent + (100 / goalsPerDay);
         }
 
         GoalRepository.SaveData();
+        SaveLocalData();
     }
 
     private void LoadGoals()
@@ -194,6 +214,62 @@ public partial class HomePage : ContentPage
         }
 
         listGoals.ItemsSource = goals;
+        ReadLocalData();
     }
 
+    public void SaveLocalData()
+    {
+        var path = FileSystem.Current.AppDataDirectory;
+        var fullPathData = Path.Combine(path, "LocalData.json");
+
+        var serializedData = JsonSerializer.Serialize(new Data
+        {
+            goalsPerDayData = goalsPerDay,
+            currentLevelPercentData = currentLevelPercent,
+            currentLevelData = currentLevel,
+        });
+
+        File.WriteAllText(fullPathData, serializedData);
+    }
+
+    public void ReadLocalData() 
+    {
+        var path = FileSystem.Current.AppDataDirectory;
+        var fullPathData = Path.Combine(path, "LocalData.json");
+
+        if (!File.Exists(fullPathData))
+            return;
+
+        var rawData = File.ReadAllText(fullPathData);
+
+
+        try
+        {
+            Data data = JsonSerializer.Deserialize<Data>(rawData);
+
+            goalsPerDay = data.goalsPerDayData;
+            currentLevelPercent = data.currentLevelPercentData;
+            currentLevel = data.currentLevelData;
+        }
+        catch (Exception e)
+        {
+            Debug.WriteLine("Exception", e.Message, "Ok");
+        }
+    }
+
+    private void UpdateReadData()
+    {
+        lblCurrentLevel.Text = currentLevel.ToString();
+        entryGoalsPerDay.Text = goalsPerDay.ToString();
+        progressBarLevel.SetProgress(currentLevelPercent, 1d, Easing.Linear);
+    }
+
+    private void btnReset_Clicked(object sender, EventArgs e)
+    {
+        goalsPerDay = 5;
+        currentLevel = 0;
+        currentLevelPercent = 0d;
+        UpdateReadData();
+        SaveLocalData();
+    }
 }
