@@ -23,6 +23,7 @@ public partial class EditGoalsPage : ContentPage
 
             goalCtrl.Task = goal.Task;
             goalCtrl.EXP = goal.EXP.ToString();
+            goalCtrl.isPriority = goal.isPriority;
         }
     }
 
@@ -36,6 +37,7 @@ public partial class EditGoalsPage : ContentPage
     {
         goal.Task = goalCtrl.Task;
         goal.EXP = Int32.Parse(goalCtrl.EXP);
+        goal.isPriority = goalCtrl.isPriority;
 
         GoalRepository.UpdateGoal(goal.GoalId, goal);
         Shell.Current.GoToAsync("..");

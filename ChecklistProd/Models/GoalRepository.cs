@@ -27,6 +27,7 @@ namespace ChecklistProd.Models
                     EXP = goal.EXP,
                     Status = goal.Status,
                     GoalColor = goal.GoalColor,
+                    isPriority = goal.isPriority,
                 };
             }
 
@@ -54,6 +55,7 @@ namespace ChecklistProd.Models
                 goalToUpdate.Task = goal.Task;
                 goalToUpdate.EXP = goal.EXP;
                 goalToUpdate.Status = goal.Status;
+                goalToUpdate.isPriority = goal.isPriority;
                 
                 if (string.Equals(goalToUpdate.Status, "complete"))
                     goalToUpdate.GoalColor = "Green";

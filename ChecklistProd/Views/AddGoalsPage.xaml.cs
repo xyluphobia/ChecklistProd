@@ -22,6 +22,7 @@ public partial class AddGoalsPage : ContentPage
             EXP = Int32.Parse(goalCtrl.EXP),
             Status = "incomplete",
             GoalColor = "Red",
+            isPriority = goalCtrl.isPriority,
     });
 
         Shell.Current.GoToAsync($"//{nameof(HomePage)}");

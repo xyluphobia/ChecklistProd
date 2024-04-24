@@ -30,6 +30,11 @@
                 </HorizontalStackLayout>
             </Frame>
 
+            <HorizontalStackLayout>
+                <CheckBox x:Name="chkboxSetPriority" VerticalOptions="Center"/>
+                <Label Text="Priority goal on hard days" VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+
             <Button x:Name="btnPushEdit" Text="Save" Clicked="btnPushEdit_Clicked"></Button>
         </VerticalStackLayout>
 

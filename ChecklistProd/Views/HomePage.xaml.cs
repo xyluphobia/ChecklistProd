@@ -19,6 +19,8 @@ public partial class HomePage : ContentPage
     public int goalsPerDay = 5;
     public double currentLevelPercent = 0d;
     public int currentLevel = 0;
+    private bool isHardDay = false;
+    private bool localLoadingAsHardDay = false;
 
     public HomePage()
     {
@@ -29,9 +31,55 @@ public partial class HomePage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
+        ReadLocalData();
+
+        if (isHardDay)
+        {
+            localLoadingAsHardDay = true;
+            chkboxHardDay.IsChecked = true;
+        }
 
         LoadGoals();
         UpdateReadData();
+    }
+
+    private void chkboxHardDay_CheckedChanged(object sender, CheckedChangedEventArgs e)
+    {
+        var priorityGoals = GoalRepository._goals.Where(goal => goal.isPriority);
+        isHardDay = chkboxHardDay.IsChecked;
+
+        // set back to original exp when hard day is off
+        if (!isHardDay) 
+        {
+            foreach (Goal goal in priorityGoals)
+            {
+                goal.EXP = 10;
+                GoalRepository.UpdateGoal(goal.GoalId, goal);
+            }
+        }
+        else if (!localLoadingAsHardDay && Preferences.Default.Get("HardDaysUsed", 0) >= Preferences.Default.Get("HardDaysPerWeek", 2))
+        {
+            chkboxHardDay.IsChecked = false;
+            isHardDay = false;
+        }
+        // set priority goals to be worth double
+        else
+        {
+            foreach (Goal goal in priorityGoals)
+            {
+                goal.EXP = 20;
+                GoalRepository.UpdateGoal(goal.GoalId, goal);
+            }
+            Preferences.Default.Set("HardDaysUsed", Preferences.Default.Get("HardDaysUsed", 0) + 1);
+        }
+        localLoadingAsHardDay = false;
+
+        SaveLocalData();
+        LoadGoals();
+    }
+    private void btnSettings_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(SettingsPage));
     }
 
     /* 
@@ -54,10 +102,6 @@ public partial class HomePage : ContentPage
 
     private void listGoals_ItemTapped(object sender, ItemTappedEventArgs e)
     {
-        // This event only triggers when the item selection is first made, this allows you to reselct the same item after logic has completed.
-        // This event always triggers when interacting with items in the list therefore we don't want to put all our logic here as it will
-        // run more often and sometimes when not expected to but it is the perfect place to garentee that the selected item is unselected as
-        // this event triggers AFTER the "ItemSelected" event triggers.
         listGoals.SelectedItem = null;
     }
 
@@ -139,7 +183,17 @@ public partial class HomePage : ContentPage
             int throwaway;
             if (Int32.TryParse(entryGoalsPerDay.Text, out throwaway))
             {
+                double goalsCompletedSimple = (currentLevelPercent * goalsPerDay) / 100d; 
                 goalsPerDay = throwaway;
+
+                currentLevelPercent = (goalsCompletedSimple / goalsPerDay) * 100d;
+
+                if (goalsCompletedSimple > goalsPerDay)
+                    LevelUp();
+                else
+                    progressBarLevel.Progress = currentLevelPercent;
+
+                progressBarUpdateSegmentCount();
                 SaveLocalData();
             }
             else
@@ -148,6 +202,12 @@ public partial class HomePage : ContentPage
                 DisplayAlert("Error", "Goal count entered must be an Integer.", "Ok");
             }
         }
+    }
+
+    private void progressBarUpdateSegmentCount()
+    {
+        progressBarLevel.SegmentCount = goalsPerDay;
+        progressBarLevel.SecondaryProgress = currentLevelPercent + (100d / goalsPerDay);
     }
 
     private void LevelUp()
@@ -167,7 +227,7 @@ public partial class HomePage : ContentPage
                 progressBarLevel.Progress = currentLevelPercent;
         }
 
-        progressBarLevel.SecondaryProgress = currentLevelPercent + (100 / goalsPerDay);
+        progressBarLevel.SecondaryProgress = currentLevelPercent + (100d / goalsPerDay);
     }
 
     private async void progressLevelBarByRatio(double ratio, Goal? goal)
@@ -176,7 +236,7 @@ public partial class HomePage : ContentPage
         // find the percent the exp gained is of goalsperday x10
 
         int EXPNeeded = goalsPerDay * 10;
-        double percentGainedForCompletion = ((goal.EXP * 100) / EXPNeeded) * ratio;
+        double percentGainedForCompletion = (goal.EXP * 100d) / EXPNeeded * ratio;
 
         currentLevelPercent = currentLevelPercent + percentGainedForCompletion;
         double savedPercent = currentLevelPercent;
@@ -194,7 +254,7 @@ public partial class HomePage : ContentPage
         else
         {
             progressBarLevel.Progress = currentLevelPercent;
-            progressBarLevel.SecondaryProgress = currentLevelPercent + (100 / goalsPerDay);
+            progressBarLevel.SecondaryProgress = currentLevelPercent + (100d / goalsPerDay);
         }
 
         GoalRepository.SaveData();
@@ -227,6 +287,7 @@ public partial class HomePage : ContentPage
             goalsPerDayData = goalsPerDay,
             currentLevelPercentData = currentLevelPercent,
             currentLevelData = currentLevel,
+            isHardDayData = isHardDay,
         });
 
         File.WriteAllText(fullPathData, serializedData);
@@ -250,6 +311,7 @@ public partial class HomePage : ContentPage
             goalsPerDay = data.goalsPerDayData;
             currentLevelPercent = data.currentLevelPercentData;
             currentLevel = data.currentLevelData;
+            isHardDay = data.isHardDayData;
         }
         catch (Exception e)
         {
@@ -262,6 +324,8 @@ public partial class HomePage : ContentPage
         lblCurrentLevel.Text = currentLevel.ToString();
         entryGoalsPerDay.Text = goalsPerDay.ToString();
         progressBarLevel.SetProgress(currentLevelPercent, 1d, Easing.Linear);
+        progressBarUpdateSegmentCount();
+        chkboxHardDay.IsChecked = isHardDay;
     }
 
     private void btnReset_Clicked(object sender, EventArgs e)
@@ -269,7 +333,12 @@ public partial class HomePage : ContentPage
         goalsPerDay = 5;
         currentLevel = 0;
         currentLevelPercent = 0d;
+        isHardDay = false;
+
+        Preferences.Default.Clear();
+
         UpdateReadData();
         SaveLocalData();
     }
+    // when i build the function that resets the goals every 24hrs dont forget to build the weekly reset that gives back all hard days
 }

@@ -13,5 +13,6 @@ namespace ChecklistProd.Models
         public int EXP { get; set; } = 10;
         public string Status { get; set; } = "incomplete";
         public string GoalColor { get; set; } = "Red";
+        public bool isPriority { get; set; } = false;
     }
 }

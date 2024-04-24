@@ -21,6 +21,12 @@ public partial class GoalControl : ContentView
 		set { entryEXP.Text = value; }
 	}
 
+	public bool isPriority
+	{
+		get { return chkboxSetPriority.IsChecked; }
+		set { chkboxSetPriority.IsChecked = value; }
+	}
+
     private void btnPushEdit_Clicked(object sender, EventArgs e)
     {
         int parseCheck;

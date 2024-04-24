@@ -5,15 +5,35 @@
              xmlns:progressBar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.Progressbar"
                 Title="Home">
     
-    <Grid RowDefinitions="20, 30, *, 50"
-          ColumnDefinitions="100, *, 100"
+    <Grid RowDefinitions="30, 30, *, 50"
+          ColumnDefinitions="96, *, 96"
           Margin="20, 20, 20, 20">
+        
+        <CheckBox Grid.Row="0" Grid.Column="0" x:Name="chkboxHardDay" 
+                  VerticalOptions="Center"
+                  HorizontalOptions="Start"
+                  CheckedChanged="chkboxHardDay_CheckedChanged"/>
+        
+        <Label Grid.Row="0" Grid.Column="0" x:Name="lblHardDay" 
+               VerticalOptions="Center"
+               HorizontalOptions="End"
+               Text="Hard Day"/>
         
         <Label Grid.Row="0" Grid.Column="1"
             x:Name="lblCurrentLevel"
             Text="0"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+        <Button Grid.Row="0" Grid.Column="2" x:Name="btnSettings"
+                WidthRequest="30"
+                MinimumWidthRequest="20"
+                CornerRadius="0"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"
+                Clicked="btnSettings_Clicked">
+        </Button>
+        
 
         <progressBar:SfLinearProgressBar Grid.Row="1" Grid.Column="1" x:Name="progressBarLevel"
             ProgressHeight="20" SecondaryProgressHeight="20" TrackHeight="20"

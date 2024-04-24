@@ -11,5 +11,6 @@ namespace ChecklistProd.Models
         public int goalsPerDayData {  get; set; }
         public double currentLevelPercentData { get; set; }
         public int currentLevelData { get; set; }
+        public bool isHardDayData { get; set; }
     }
 }
