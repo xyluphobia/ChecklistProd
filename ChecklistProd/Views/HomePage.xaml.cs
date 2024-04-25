@@ -7,31 +7,30 @@ using System.Text.Json;
 
 namespace ChecklistProd.Views;
 
-// https://www.youtube.com/watch?app=desktop&v=eeJske-Tu40&ab_channel=SingletonSean useful for making persistent login sessions
-/* Saving Options:
- * Preferences:  (use for simple data, dont use for objs large things)
- *   Perefernces.Set("keyname", data);
- *   Preferences.Get("keyname", idk);
- */
-
 public partial class HomePage : ContentPage
 {
     public int goalsPerDay = 5;
+    int goalsCompletedToday = 0;
     public double currentLevelPercent = 0d;
     public int currentLevel = 0;
     private bool isHardDay = false;
     private bool localLoadingAsHardDay = false;
+    bool dailyTimerRunning;
+    List<bool> currentStreak;
 
     public HomePage()
     {
         InitializeComponent();
+        dailyTimerRunning = false;
         GoalRepository.ReadData();
     }
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
+
         ReadLocalData();
+        checkAndResetGoalsDaily();
 
         if (isHardDay)
         {
@@ -122,26 +121,36 @@ public partial class HomePage : ContentPage
 
     private void GoalComplete_Clicked(object sender, EventArgs e)
     {
-        var menuItem = sender as MenuItem;
-        var goal = GoalRepository.GetGoalById((int)menuItem.CommandParameter);
+        var listItem = sender as Button;
+        var goal = GoalRepository.GetGoalById((int)listItem.CommandParameter);
 
         if (string.Equals(goal.Status, "partial"))
             progressLevelBarByRatio(0.5d, goal);
         else
+        {
             progressLevelBarByRatio(1d, goal);
+            goal.GoalComplete = true;
+        }
 
         if (string.Equals(goal.Status, "recomplete") || string.Equals(goal.Status, "complete"))
+        {
             goal.Status = "recomplete";
+            goal.GoalComplete = true;
+        }
         else
+        {
             goal.Status = "complete";
+            goal.GoalComplete = true;
+        }
+
         GoalRepository.UpdateGoal(goal.GoalId, goal);
         LoadGoals();
     }
 
     private void GoalPartialComplete_Clicked(object sender, EventArgs e)
     {
-        var menuItem = sender as MenuItem;
-        var goal = GoalRepository.GetGoalById((int)menuItem.CommandParameter);
+        var listItem = sender as Button;
+        var goal = GoalRepository.GetGoalById((int)listItem.CommandParameter);
 
         progressLevelBarByRatio(0.5d, goal);
 
@@ -158,8 +167,8 @@ public partial class HomePage : ContentPage
 
     private void GoalReComplete_Clicked(object sender, EventArgs e)
     {
-        var menuItem = sender as MenuItem;
-        var goal = GoalRepository.GetGoalById((int)menuItem.CommandParameter);
+        var listItem = sender as Button;
+        var goal = GoalRepository.GetGoalById((int)listItem.CommandParameter);
 
         if (!string.Equals(goal.Status, "complete"))
             return;
@@ -257,6 +266,7 @@ public partial class HomePage : ContentPage
             progressBarLevel.SecondaryProgress = currentLevelPercent + (100d / goalsPerDay);
         }
 
+        ProgressStreak();
         GoalRepository.SaveData();
         SaveLocalData();
     }
@@ -285,9 +295,11 @@ public partial class HomePage : ContentPage
         var serializedData = JsonSerializer.Serialize(new Data
         {
             goalsPerDayData = goalsPerDay,
+            goalsCompletedTodayData = goalsCompletedToday,
             currentLevelPercentData = currentLevelPercent,
             currentLevelData = currentLevel,
             isHardDayData = isHardDay,
+            currentStreakData = currentStreak,
         });
 
         File.WriteAllText(fullPathData, serializedData);
@@ -309,9 +321,11 @@ public partial class HomePage : ContentPage
             Data data = JsonSerializer.Deserialize<Data>(rawData);
 
             goalsPerDay = data.goalsPerDayData;
+            goalsCompletedToday = data.goalsCompletedTodayData;
             currentLevelPercent = data.currentLevelPercentData;
             currentLevel = data.currentLevelData;
             isHardDay = data.isHardDayData;
+            currentStreak = data.currentStreakData;
         }
         catch (Exception e)
         {
@@ -322,6 +336,7 @@ public partial class HomePage : ContentPage
     private void UpdateReadData()
     {
         lblCurrentLevel.Text = currentLevel.ToString();
+        lblCurrentStreak.Text = currentStreak.Count.ToString();
         entryGoalsPerDay.Text = goalsPerDay.ToString();
         progressBarLevel.SetProgress(currentLevelPercent, 1d, Easing.Linear);
         progressBarUpdateSegmentCount();
@@ -331,9 +346,11 @@ public partial class HomePage : ContentPage
     private void btnReset_Clicked(object sender, EventArgs e)
     {
         goalsPerDay = 5;
+        goalsCompletedToday = 0;
         currentLevel = 0;
         currentLevelPercent = 0d;
         isHardDay = false;
+        currentStreak.Clear();
 
         Preferences.Default.Clear();
 
@@ -341,4 +358,67 @@ public partial class HomePage : ContentPage
         SaveLocalData();
     }
     // when i build the function that resets the goals every 24hrs dont forget to build the weekly reset that gives back all hard days
+    private void checkAndResetGoalsDaily()
+    {
+        DateTime savedDateTime = Preferences.Default.Get("LastRefDateTime", new DateTime());
+        DateTime currentDateTime = DateTime.Now;
+
+        if (DateTime.Compare(currentDateTime.Date, savedDateTime.Date) == 0)
+        {
+            if (!dailyTimerRunning)
+            {
+                dailyTimerRunning = true;
+
+                TimeSpan timeUntilMidnight = (currentDateTime - currentDateTime.Date).Subtract(TimeSpan.FromHours(24)).Duration();  
+                Task.Delay(timeUntilMidnight).ContinueWith(async o =>
+                {
+                    if (currentDateTime.DayOfWeek == DayOfWeek.Saturday)
+                        weeklyReset();
+
+                    goalsCompletedToday = 0;
+                    SaveLocalData();
+
+                    await Shell.Current.GoToAsync(nameof(refreshMainPage));
+                });
+            }
+        }
+        else if (DateTime.Compare(currentDateTime.Date, savedDateTime.Date) > 0)
+        {
+            GoalRepository.ResetGoalCompletion();
+            LoadGoals();
+        }
+        else if (DateTime.Compare(currentDateTime.Date, savedDateTime.Date) < 0)
+        {
+            Debug.WriteLine("Error, you have time travelled.");
+        }
+
+        Preferences.Default.Set("LastRefDateTime", DateTime.Now);
+    }
+
+    private void weeklyReset()
+    {
+
+        if (currentStreak.Count >= 7)
+        {
+            // weekly streak success bonus
+            if (Preferences.Default.Get("HardDaysUsed", 0) <= 0)
+            {
+                // bonus for going a week without a hard day/nice message
+            }
+        }
+
+        Preferences.Default.Set("HardDaysUsed", 0);
+        currentStreak.Clear();
+    }
+
+    private void ProgressStreak()
+    {
+        goalsCompletedToday += 1;
+        if (goalsCompletedToday >= goalsPerDay || isHardDay)
+        {
+            currentStreak.Add(true);
+            lblCurrentStreak.Text = currentStreak.Count.ToString();
+            SaveLocalData();
+        }
+    }
 }

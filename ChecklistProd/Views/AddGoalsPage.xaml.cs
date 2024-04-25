@@ -23,6 +23,7 @@ public partial class AddGoalsPage : ContentPage
             Status = "incomplete",
             GoalColor = "Red",
             isPriority = goalCtrl.isPriority,
+            GoalComplete = false,
     });
 
         Shell.Current.GoToAsync($"//{nameof(HomePage)}");

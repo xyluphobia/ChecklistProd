@@ -16,6 +16,9 @@ C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-maccatalys
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\Microsoft.Maui.dll
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\Microsoft.Maui.Essentials.dll
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\Microsoft.Maui.Graphics.dll
+C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\Syncfusion.Licensing.dll
+C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\Syncfusion.Maui.Core.dll
+C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\Syncfusion.Maui.ProgressBar.dll
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\ar\Microsoft.Maui.Controls.resources.dll
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\ca\Microsoft.Maui.Controls.resources.dll
 C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\cs\Microsoft.Maui.Controls.resources.dll

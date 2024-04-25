@@ -18,12 +18,20 @@
                VerticalOptions="Center"
                HorizontalOptions="End"
                Text="Hard Day"/>
-        
-        <Label Grid.Row="0" Grid.Column="1"
-            x:Name="lblCurrentLevel"
-            Text="0"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+
+        <Grid ColumnDefinitions="50, *, 50"
+            Grid.Row="0" Grid.Column="1">
+            
+            <Label Grid.Column="1" x:Name="lblCurrentLevel"
+                Text="0"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+
+            <Label Grid.Column="2" x:Name="lblCurrentStreak"
+                   Text="0"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"/>
+        </Grid>
 
         <Button Grid.Row="0" Grid.Column="2" x:Name="btnSettings"
                 WidthRequest="30"
@@ -66,17 +74,33 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <!-- Curly braces refer to an object, Look into swapping the textcell to a viewcell so that I can add buttons. -->
-                    <TextCell
-                        Text="{Binding Task}"
-                        Detail="{Binding EXP}"
-                        TextColor="{Binding GoalColor}">
-                        <TextCell.ContextActions>
-                            <MenuItem Text="Complete" Clicked="GoalComplete_Clicked" CommandParameter="{Binding GoalId}"></MenuItem>
-                            <MenuItem Text="Partial Complete" Clicked="GoalPartialComplete_Clicked" CommandParameter="{Binding GoalId}"></MenuItem>
-                            <MenuItem Text="Re-Complete" Clicked="GoalReComplete_Clicked" CommandParameter="{Binding GoalId}"></MenuItem>
+                    <ViewCell>
+                        <Grid RowDefinitions="5, *, 5" ColumnDefinitions="50, 50, 30, *, 50" ColumnSpacing="10">
+                            <Button Grid.Row="1" Grid.Column="0"
+                                BackgroundColor="Orange" 
+                                Text="P"
+                                Clicked="GoalPartialComplete_Clicked" 
+                                CommandParameter="{Binding GoalId}"/>
+                            <Button Grid.Row="1" Grid.Column="1"
+                                BackgroundColor="Green" 
+                                Text="C"
+                                Clicked="GoalComplete_Clicked" 
+                                CommandParameter="{Binding GoalId}"/>
+                            <Label Grid.Row="1" Grid.Column="3"
+                                Text="{Binding Task}" 
+                                TextColor="{Binding GoalColor}"/>
+                            <Button Grid.Row="1" Grid.Column="4" 
+                                BackgroundColor="Gold" 
+                                Text="RC"
+                                Clicked="GoalReComplete_Clicked" 
+                                CommandParameter="{Binding GoalId}"
+                                IsEnabled="{Binding GoalComplete}"/>
+                        </Grid>
+
+                        <ViewCell.ContextActions>
                             <MenuItem Text="Delete" IsDestructive="True" Clicked="Delete_Clicked" CommandParameter="{Binding .}"></MenuItem>
-                        </TextCell.ContextActions>
-                    </TextCell>
+                        </ViewCell.ContextActions>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

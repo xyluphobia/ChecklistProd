@@ -28,6 +28,7 @@ namespace ChecklistProd.Models
                     Status = goal.Status,
                     GoalColor = goal.GoalColor,
                     isPriority = goal.isPriority,
+                    GoalComplete = goal.GoalComplete,
                 };
             }
 
@@ -56,6 +57,7 @@ namespace ChecklistProd.Models
                 goalToUpdate.EXP = goal.EXP;
                 goalToUpdate.Status = goal.Status;
                 goalToUpdate.isPriority = goal.isPriority;
+                goalToUpdate.GoalComplete = goal.GoalComplete;
                 
                 if (string.Equals(goalToUpdate.Status, "complete"))
                     goalToUpdate.GoalColor = "Green";
@@ -85,6 +87,17 @@ namespace ChecklistProd.Models
             _goals.Add(goal);
 
             SaveData();
+        }
+
+        public static void ResetGoalCompletion()
+        {
+            var completedGoals = _goals.Where(goal => goal.Status != "incomplete");
+
+            foreach (Goal goal in completedGoals)
+            {
+                goal.Status = "incomplete";
+                UpdateGoal(goal.GoalId, goal);
+            }
         }
 
         public static void SaveData()

@@ -12,5 +12,7 @@ namespace ChecklistProd.Models
         public double currentLevelPercentData { get; set; }
         public int currentLevelData { get; set; }
         public bool isHardDayData { get; set; }
+        public List<bool> currentStreakData { get; set; }
+        public int goalsCompletedTodayData { get; set; }
     }
 }
