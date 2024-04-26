@@ -13,6 +13,7 @@ namespace ChecklistProd
             Routing.RegisterRoute(nameof(AddGoalsPage), typeof(AddGoalsPage));
             Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
+            Routing.RegisterRoute(nameof(LoadingPage), typeof(LoadingPage));
         }
     }
 }

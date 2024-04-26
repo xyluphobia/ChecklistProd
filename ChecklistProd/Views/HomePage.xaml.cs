@@ -1,4 +1,5 @@
 using ChecklistProd.Models;
+using ChecklistProd.Services;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Text.Json;
@@ -120,8 +121,8 @@ public partial class HomePage : ContentPage
 
     private void GoalComplete_Clicked(object sender, EventArgs e)
     {
-        var listItem = sender as Button;
-        var goal = GoalRepository.GetGoalById((int)listItem.CommandParameter);
+        var btnListItem = sender as Button;
+        var goal = GoalRepository.GetGoalById((int)btnListItem.CommandParameter);
 
         if (string.Equals(goal.Status, "partial"))
             progressLevelBarByRatio(0.5d, goal);
@@ -148,8 +149,8 @@ public partial class HomePage : ContentPage
 
     private void GoalPartialComplete_Clicked(object sender, EventArgs e)
     {
-        var listItem = sender as Button;
-        var goal = GoalRepository.GetGoalById((int)listItem.CommandParameter);
+        var btnListItem = sender as Button;
+        var goal = GoalRepository.GetGoalById((int)btnListItem.CommandParameter);
 
         progressLevelBarByRatio(0.5d, goal);
 
@@ -166,8 +167,8 @@ public partial class HomePage : ContentPage
 
     private void GoalReComplete_Clicked(object sender, EventArgs e)
     {
-        var listItem = sender as Button;
-        var goal = GoalRepository.GetGoalById((int)listItem.CommandParameter);
+        var btnListItem = sender as Button;
+        var goal = GoalRepository.GetGoalById((int)btnListItem.CommandParameter);
 
         if (!string.Equals(goal.Status, "complete") && !string.Equals(goal.Status, "recomplete"))
             return;
@@ -355,7 +356,7 @@ public partial class HomePage : ContentPage
         isHardDay = false;
         currentStreak.Clear();
         weeksCompletedStreak = 0;
-
+        
         Preferences.Default.Clear();
 
         UpdateReadData();

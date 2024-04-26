@@ -8,6 +8,18 @@
     Shell.FlyoutBehavior="Disabled"
     Title="ChecklistProd">
 
+    <!-- Loading Page -->
+    <ShellContent
+        Title="Loading"
+        ContentTemplate="{DataTemplate views:LoadingPage}"
+        Route="LoadingPage" />
+
+    <!-- Login Page -->
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate views:LoginPage}"
+        Route="LoginPage" />
+
     <!-- Main Page -->
     <ShellContent
         Title="Home"

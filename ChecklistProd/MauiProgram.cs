@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using ChecklistProd.Services;
+using ChecklistProd.Views;
+using Microsoft.Extensions.Logging;
 using Syncfusion.Maui.Core.Hosting;
 
 namespace ChecklistProd
@@ -21,6 +23,10 @@ namespace ChecklistProd
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            builder.Services.AddTransient<AuthService>();
+            builder.Services.AddTransient<LoadingPage>();
+            builder.Services.AddTransient<LoginPage>();
+            builder.Services.AddTransient<SettingsPage>();
 
             return builder.Build();
         }

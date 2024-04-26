@@ -28,6 +28,10 @@
                 Margin="7, 0, 0, 0"
                 Unfocused="entrySettingsHardDaysPerWeek_Unfocused"
                 Keyboard="Numeric" ReturnType="Done"/>
+            
+            <Button x:Name="btnLogout"
+                Text="Logout"
+                Clicked="btnLogout_Clicked"/>
         </HorizontalStackLayout>
         
 

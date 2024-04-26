@@ -14,9 +14,9 @@
             Placeholder="Password"
             />
 
-        <Button 
+        <Button x:Name="btnLogin"
             Text="Login"
-            />
+            Clicked="btnLogin_Clicked"/>
 
     </VerticalStackLayout>
 </ContentPage>
