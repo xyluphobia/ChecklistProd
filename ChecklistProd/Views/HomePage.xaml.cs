@@ -1,8 +1,6 @@
 using ChecklistProd.Models;
-using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Drawing;
 using System.Text.Json;
 
 namespace ChecklistProd.Views;
@@ -16,7 +14,8 @@ public partial class HomePage : ContentPage
     private bool isHardDay = false;
     private bool localLoadingAsHardDay = false;
     bool dailyTimerRunning;
-    List<bool> currentStreak;
+    List<bool> currentStreak = new List<bool>();
+    int weeksCompletedStreak;
 
     public HomePage()
     {
@@ -170,7 +169,7 @@ public partial class HomePage : ContentPage
         var listItem = sender as Button;
         var goal = GoalRepository.GetGoalById((int)listItem.CommandParameter);
 
-        if (!string.Equals(goal.Status, "complete"))
+        if (!string.Equals(goal.Status, "complete") && !string.Equals(goal.Status, "recomplete"))
             return;
 
         progressLevelBarByRatio(1d, goal);
@@ -275,12 +274,14 @@ public partial class HomePage : ContentPage
     {
         var goals = new ObservableCollection<Goal>(GoalRepository.GetGoals());
 
-        foreach (Goal goal in goals)            // this loops only purpose is to make goals with exp values greater than 10 have their colour be purple
-        {                                       // this is probably not worth and should be removed later
-            if (goal.EXP > 10)
-            {
-                GoalRepository.UpdateGoal(goal.GoalId, goal);
-            }
+        foreach (Goal goal in goals.Where(goal => goal.isPriority))
+        {
+            if (isHardDay)
+                goal.EXP = 20;
+            else
+                goal.EXP = 10;
+
+            GoalRepository.UpdateGoal(goal.GoalId, goal);
         }
 
         listGoals.ItemsSource = goals;
@@ -300,6 +301,7 @@ public partial class HomePage : ContentPage
             currentLevelData = currentLevel,
             isHardDayData = isHardDay,
             currentStreakData = currentStreak,
+            weeksCompletedStreakData = weeksCompletedStreak,
         });
 
         File.WriteAllText(fullPathData, serializedData);
@@ -326,6 +328,7 @@ public partial class HomePage : ContentPage
             currentLevel = data.currentLevelData;
             isHardDay = data.isHardDayData;
             currentStreak = data.currentStreakData;
+            weeksCompletedStreak = data.weeksCompletedStreakData;
         }
         catch (Exception e)
         {
@@ -336,7 +339,7 @@ public partial class HomePage : ContentPage
     private void UpdateReadData()
     {
         lblCurrentLevel.Text = currentLevel.ToString();
-        lblCurrentStreak.Text = currentStreak.Count.ToString();
+        lblCurrentStreak.Text = (currentStreak.Count + (weeksCompletedStreak * 7)).ToString();
         entryGoalsPerDay.Text = goalsPerDay.ToString();
         progressBarLevel.SetProgress(currentLevelPercent, 1d, Easing.Linear);
         progressBarUpdateSegmentCount();
@@ -351,6 +354,7 @@ public partial class HomePage : ContentPage
         currentLevelPercent = 0d;
         isHardDay = false;
         currentStreak.Clear();
+        weeksCompletedStreak = 0;
 
         Preferences.Default.Clear();
 
@@ -365,27 +369,12 @@ public partial class HomePage : ContentPage
 
         if (DateTime.Compare(currentDateTime.Date, savedDateTime.Date) == 0)
         {
-            if (!dailyTimerRunning)
-            {
-                dailyTimerRunning = true;
-
-                TimeSpan timeUntilMidnight = (currentDateTime - currentDateTime.Date).Subtract(TimeSpan.FromHours(24)).Duration();  
-                Task.Delay(timeUntilMidnight).ContinueWith(async o =>
-                {
-                    if (currentDateTime.DayOfWeek == DayOfWeek.Saturday)
-                        weeklyReset();
-
-                    goalsCompletedToday = 0;
-                    SaveLocalData();
-
-                    await Shell.Current.GoToAsync(nameof(refreshMainPage));
-                });
-            }
+            MidnightTimer(currentDateTime);
         }
         else if (DateTime.Compare(currentDateTime.Date, savedDateTime.Date) > 0)
         {
-            GoalRepository.ResetGoalCompletion();
-            LoadGoals();
+            DailyReset();
+            MidnightTimer(currentDateTime);
         }
         else if (DateTime.Compare(currentDateTime.Date, savedDateTime.Date) < 0)
         {
@@ -394,17 +383,59 @@ public partial class HomePage : ContentPage
 
         Preferences.Default.Set("LastRefDateTime", DateTime.Now);
     }
-
-    private void weeklyReset()
+    private void MidnightTimer(DateTime currentDateTime)
     {
+        if (dailyTimerRunning) return;
+
+        dailyTimerRunning = true;
+
+        TimeSpan timeUntilMidnight = (currentDateTime - currentDateTime.Date).Subtract(TimeSpan.FromHours(24)).Duration();
+        Task.Delay(timeUntilMidnight).ContinueWith(o =>
+        {
+            Dispatcher.Dispatch(new Action(() =>
+            {
+                DailyReset();
+                dailyTimerRunning = false;
+            }));
+        });
+    }
+
+    private void DailyReset()
+    {
+        if (currentStreak.Count < (int)DateTime.Today.DayOfWeek)
+        {
+            currentStreak.Clear();
+        }
+
+        goalsCompletedToday = 0;
+        GoalRepository.ResetGoalCompletion();
+        // if its sunday or if it has been sunday since the last referenced date
+        int DaysUntilSundayFromRef = ((int) DayOfWeek.Sunday - (int)Preferences.Default.Get("LastRefDateTime", new DateTime()).DayOfWeek + 7);
+        int DaysUntilTodayFromRef = ((int) DateTime.Today.DayOfWeek - (int)Preferences.Default.Get("LastRefDateTime", new DateTime()).DayOfWeek + 7);
+        if (DateTime.Today.DayOfWeek == DayOfWeek.Sunday || DaysUntilTodayFromRef >= DaysUntilSundayFromRef)
+            WeeklyReset();
+
+        SaveLocalData();
+        UpdateReadData();
+        LoadGoals();
+    }
+
+    private void WeeklyReset()
+    {
+        Debug.WriteLine("Weekly Reset Popped, Check Day");
 
         if (currentStreak.Count >= 7)
         {
             // weekly streak success bonus
+            weeksCompletedStreak += 1;
             if (Preferences.Default.Get("HardDaysUsed", 0) <= 0)
             {
                 // bonus for going a week without a hard day/nice message
             }
+        }
+        else
+        {
+            weeksCompletedStreak = 0;
         }
 
         Preferences.Default.Set("HardDaysUsed", 0);

@@ -91,11 +91,12 @@ namespace ChecklistProd.Models
 
         public static void ResetGoalCompletion()
         {
-            var completedGoals = _goals.Where(goal => goal.Status != "incomplete");
+            var completedGoals = _goals.Where(goal => goal.Status != "incomplete" || goal.GoalComplete == true);
 
             foreach (Goal goal in completedGoals)
             {
                 goal.Status = "incomplete";
+                goal.GoalComplete = false;
                 UpdateGoal(goal.GoalId, goal);
             }
         }

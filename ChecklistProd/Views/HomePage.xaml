@@ -62,44 +62,59 @@
             </progressBar:SfLinearProgressBar.GradientStops>
         </progressBar:SfLinearProgressBar>
 
-        <ListView Grid.Row="2" Grid.Column="1"
-            x:Name="listGoals" 
-            BackgroundColor="Transparent"
-            SeparatorColor="Aqua"
-            RowHeight="60"
+
+        <ListView Grid.Row="2" Grid.Column="1" x:Name="listGoals" 
+                BackgroundColor="Transparent"
+                SeparatorColor="Aqua"
+                RowHeight="60"
             
-            ItemSelected="listGoals_ItemSelected"
-            ItemTapped="listGoals_ItemTapped"
-        >
+                ItemSelected="listGoals_ItemSelected"
+                ItemTapped="listGoals_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <!-- Curly braces refer to an object, Look into swapping the textcell to a viewcell so that I can add buttons. -->
                     <ViewCell>
-                        <Grid RowDefinitions="5, *, 5" ColumnDefinitions="50, 50, 30, *, 50" ColumnSpacing="10">
-                            <Button Grid.Row="1" Grid.Column="0"
-                                BackgroundColor="Orange" 
-                                Text="P"
-                                Clicked="GoalPartialComplete_Clicked" 
-                                CommandParameter="{Binding GoalId}"/>
-                            <Button Grid.Row="1" Grid.Column="1"
-                                BackgroundColor="Green" 
-                                Text="C"
-                                Clicked="GoalComplete_Clicked" 
-                                CommandParameter="{Binding GoalId}"/>
-                            <Label Grid.Row="1" Grid.Column="3"
-                                Text="{Binding Task}" 
-                                TextColor="{Binding GoalColor}"/>
-                            <Button Grid.Row="1" Grid.Column="4" 
-                                BackgroundColor="Gold" 
-                                Text="RC"
-                                Clicked="GoalReComplete_Clicked" 
-                                CommandParameter="{Binding GoalId}"
-                                IsEnabled="{Binding GoalComplete}"/>
-                        </Grid>
-
                         <ViewCell.ContextActions>
-                            <MenuItem Text="Delete" IsDestructive="True" Clicked="Delete_Clicked" CommandParameter="{Binding .}"></MenuItem>
+                            <MenuItem 
+                                Text="Delete" 
+                                IsDestructive="True" 
+                                Clicked="Delete_Clicked" 
+                                CommandParameter="{Binding .}"/>
                         </ViewCell.ContextActions>
+                        <!-- Ensure that all options in contextmenu are available in swipe items and the other way around. -->
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems Mode="Reveal">
+                                    <SwipeItem
+                                        Text="Delete"
+                                        IsDestructive="True"
+                                        BackgroundColor="Red"
+                                        Clicked="Delete_Clicked"
+                                        CommandParameter="{Binding .}"/>
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+
+                            <Grid RowDefinitions="5, *, 5" ColumnDefinitions="50, 50, 30, *, 50" ColumnSpacing="10">
+                                <Button Grid.Row="1" Grid.Column="0"
+                                    BackgroundColor="Orange" 
+                                    Text="P"
+                                    Clicked="GoalPartialComplete_Clicked" 
+                                    CommandParameter="{Binding GoalId}"/>
+                                <Button Grid.Row="1" Grid.Column="1"
+                                    BackgroundColor="Green" 
+                                    Text="C"
+                                    Clicked="GoalComplete_Clicked" 
+                                    CommandParameter="{Binding GoalId}"/>
+                                <Label Grid.Row="1" Grid.Column="3"
+                                    Text="{Binding Task}" 
+                                    TextColor="{Binding GoalColor}"/>
+                                <Button Grid.Row="1" Grid.Column="4" 
+                                    BackgroundColor="Gold" 
+                                    Text="RC"
+                                    Clicked="GoalReComplete_Clicked" 
+                                    CommandParameter="{Binding GoalId}"
+                                    IsEnabled="{Binding GoalComplete}"/>
+                            </Grid>
+                        </SwipeView>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
