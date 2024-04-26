@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ChecklistProd.Views.HomePage"
              xmlns:progressBar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.Progressbar"
-                Title="Home">
+             Title="Home">
     
     <Grid RowDefinitions="30, 30, *, 50"
           ColumnDefinitions="96, *, 96"
-          Margin="20, 20, 20, 20">
+          Margin="10">
         
         <CheckBox Grid.Row="0" Grid.Column="0" x:Name="chkboxHardDay" 
                   VerticalOptions="Center"

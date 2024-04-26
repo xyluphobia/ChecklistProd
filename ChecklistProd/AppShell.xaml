@@ -8,6 +8,7 @@
     Shell.FlyoutBehavior="Disabled"
     Title="ChecklistProd">
 
+    <!-- Main Page -->
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate views:HomePage}"
