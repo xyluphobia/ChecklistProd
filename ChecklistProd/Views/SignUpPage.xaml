@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChecklistProd.Views.SignUpPage"
+             Title="SignUpPage">
+
+
+    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+
+        <Entry x:Name="entryEmail"
+        Placeholder="Email"
+        Keyboard="Email"
+        ReturnType="Next"
+        IsSpellCheckEnabled="False"/>
+
+        <Entry x:Name="entryPassword"
+        Placeholder="Password"
+        Keyboard="Text"
+        ReturnType="Done"
+        IsSpellCheckEnabled="False"
+        IsPassword="True"/>
+        
+        <Entry x:Name="entryConfirmPassword"
+        Placeholder="Confirm Password"
+        Keyboard="Text"
+        ReturnType="Done"
+        IsSpellCheckEnabled="False"
+        IsPassword="True"/>
+
+        <Button x:Name="btnShowPassword"
+            Text="Show Password"
+            Clicked="btnShowPassword_Clicked"/>
+
+        <Button x:Name="btnSignUp"
+        Text="Sign Up"
+        Clicked="btnSignUp_Clicked"/>
+
+        <Label
+            Text="Already have an account?" />
+        <Button x:Name="btnGoToLogin"
+            Text="Back to login!"
+            Clicked="btnGoToLogin_Clicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>

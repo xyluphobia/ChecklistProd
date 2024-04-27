@@ -6,17 +6,28 @@
 
     <VerticalStackLayout VerticalOptions="CenterAndExpand">
 
-        <Entry
-            Placeholder="Username"
-            />
-        
-        <Entry
+        <Entry x:Name="entryEmail"
+            Placeholder="Email"
+            Keyboard="Email"
+            ReturnType="Next"
+            IsSpellCheckEnabled="False"/>
+
+        <Entry x:Name="entryPassword"
             Placeholder="Password"
-            />
+            Keyboard="Text"
+            ReturnType="Done"
+            IsSpellCheckEnabled="False"
+            IsPassword="True"/>
 
         <Button x:Name="btnLogin"
             Text="Login"
             Clicked="btnLogin_Clicked"/>
+
+        <Label
+            Text="Don't have an account?" />
+        <Button x:Name="btnGoToSignUp"
+            Text="Sign up!"
+            Clicked="btnGoToSignUp_Clicked"/>
 
     </VerticalStackLayout>
 </ContentPage>
