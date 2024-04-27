@@ -8,6 +8,9 @@ using System.IO;
 using System.Text.Json;
 using System.Diagnostics;
 using ChecklistProd.Views;
+using ChecklistProd.Services;
+using System.Data.SqlClient;
+
 
 namespace ChecklistProd.Models
 {
@@ -130,6 +133,28 @@ namespace ChecklistProd.Models
                 _goals = new List<Goal>();
                 Debug.WriteLine("Exception", e.Message, "Ok");
             }
+        }
+
+        public static void SaveDataToSQL()
+        {
+            // get user email
+            // connect to sql server
+            // find user email in database and add goals to the "goals" column
+            // disconnect from sql server
+
+            string userEmail = Preferences.Default.Get<string>(AuthService.EmailKey, "");
+            if (Equals(userEmail, "")) return; // this should throw an error
+
+            
+        }
+
+        public static void ReadDataFromSQL()
+        {
+            // get user email
+            // connect to sql server
+            // find user email in database and set goals to be equal to "goals" column unless it is null
+            // if its null set goals to new List<Goal>(){}
+            // discount from sql server
         }
     }
 }

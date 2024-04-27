@@ -1,28 +1,44 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="ChecklistProd.Views.LoginPage"
              Title="Login">
+    
 
+    
     <VerticalStackLayout VerticalOptions="CenterAndExpand">
 
         <Entry x:Name="entryEmail"
             Placeholder="Email"
             Keyboard="Email"
             ReturnType="Next"
-            IsSpellCheckEnabled="False"/>
+            IsSpellCheckEnabled="False"
+            MaxLength="50">
+            <Entry.Behaviors> <!-- Styles located in "App.xaml" -->
+                <toolkit:EmailValidationBehavior  x:Name="behaviorEmailValidator"
+                    InvalidStyle="{StaticResource InvalidEntryStyle}"
+                    ValidStyle="{StaticResource ValidEntryStyle}"
+                    Flags="ValidateOnValueChanged"/>
+            </Entry.Behaviors>
+        </Entry>
 
         <Entry x:Name="entryPassword"
             Placeholder="Password"
             Keyboard="Text"
             ReturnType="Done"
             IsSpellCheckEnabled="False"
+            MaxLength="50"
             IsPassword="True"/>
+
+        <Button x:Name="btnShowPassword"
+            Text="Show Password"
+            Clicked="btnShowPassword_Clicked"/>
 
         <Button x:Name="btnLogin"
             Text="Login"
             Clicked="btnLogin_Clicked"/>
-
+        
         <Label
             Text="Don't have an account?" />
         <Button x:Name="btnGoToSignUp"

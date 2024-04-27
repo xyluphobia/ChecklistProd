@@ -1,5 +1,10 @@
-﻿using System;
+﻿using ChecklistProd.Views;
+using Microsoft.Maui.Controls;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Security;
 using System.Text;
@@ -10,6 +15,7 @@ namespace ChecklistProd.Services
     public class AuthService
     {
         private const string AuthStateKey = "AuthState";
+        public const string EmailKey = "AuthSavedEmail";
         public async Task<bool> IsAuthenticatedAsync()
         {
             await Task.Delay(1500);
@@ -18,10 +24,23 @@ namespace ChecklistProd.Services
             return authState;
         }
 
-        public void Login(string email, string password)
+        public bool Login(string email, string password)
         {
-            // check here before setting the key to true if the credentials entered are valid
-            Preferences.Default.Set<bool>(AuthStateKey, true);
+            string? connectionString = Environment.GetEnvironmentVariable("ENV_SqlConnection");
+            using SqlConnection connection = new SqlConnection(connectionString);
+            using SqlCommand command = connection.CreateCommand();
+            command.CommandText = $"SELECT * FROM Accounts WHERE email = '{email}' AND password = '{password}'";
+            connection.Open();
+
+            using SqlDataReader reader = command.ExecuteReader();
+
+            if (!reader.HasRows)
+            {
+                return false; // Creds DON'T exist in system
+            }
+
+            Preferences.Default.Set(AuthStateKey, true);
+            return true; // Creds DO exist in system
         }
         public void Logout()
         {
