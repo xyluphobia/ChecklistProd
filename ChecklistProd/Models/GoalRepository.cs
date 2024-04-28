@@ -88,7 +88,8 @@ namespace ChecklistProd.Models
             if (_goals.Count > 0)
                 maxId = _goals.Max(x => x.GoalId);
 
-            goal.GoalId = maxId + 1; 
+            goal.GoalId = maxId + 1;
+            goal.EXP = goal.isPriority ? 20 : 10;
             _goals.Add(goal);
 
             SaveData(true);

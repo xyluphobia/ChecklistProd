@@ -19,7 +19,6 @@ public partial class AddGoalsPage : ContentPage
         GoalRepository.AddGoal(new Goal
         {
             Task = goalCtrl.Task,
-            EXP = Int32.Parse(goalCtrl.EXP),
             Status = "incomplete",
             GoalColor = "Red",
             isPriority = goalCtrl.isPriority,

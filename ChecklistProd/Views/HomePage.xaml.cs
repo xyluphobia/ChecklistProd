@@ -118,6 +118,19 @@ public partial class HomePage : ContentPage
 
         LoadGoals();
     }
+    private void Duplicate_Clicked(object sender, EventArgs e)
+    {
+        var menuItem = sender as MenuItem;
+        var goal = menuItem.CommandParameter as Goal;
+
+        goal.GoalComplete = false;
+        goal.Status = "incomplete";
+        goal.GoalColor = "Red";
+
+        GoalRepository.AddGoal(goal);
+
+        LoadGoals();
+    }
 
     private void GoalComplete_Clicked(object sender, EventArgs e)
     {

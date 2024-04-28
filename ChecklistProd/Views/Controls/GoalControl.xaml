@@ -23,12 +23,6 @@
                     <Entry x:Name="entryTask" VerticalOptions="Center" ClearButtonVisibility="WhileEditing" Keyboard="Chat" ReturnType="Done"></Entry>
                 </HorizontalStackLayout>
             </Frame>
-            <Frame Padding="10, 2, 10, 2">
-                <HorizontalStackLayout>
-                    <Label Text="EXP:" VerticalOptions="Center" WidthRequest="43"></Label>
-                    <Entry x:Name="entryEXP" VerticalOptions="Center" ClearButtonVisibility="WhileEditing" Keyboard="Numeric" ReturnType="Done"></Entry>
-                </HorizontalStackLayout>
-            </Frame>
 
             <HorizontalStackLayout>
                 <CheckBox x:Name="chkboxSetPriority" VerticalOptions="Center"/>

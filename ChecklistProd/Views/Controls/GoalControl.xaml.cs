@@ -15,11 +15,6 @@ public partial class GoalControl : ContentView
 		get { return entryTask.Text; }
 		set { entryTask.Text = value; }
 	}
-	public string EXP
-	{
-		get { return entryEXP.Text; }
-		set { entryEXP.Text = value; }
-	}
 
 	public bool isPriority
 	{
@@ -29,16 +24,10 @@ public partial class GoalControl : ContentView
 
     private void btnPushEdit_Clicked(object sender, EventArgs e)
     {
-        int parseCheck;
-
 		if (entryTask.Text == null || entryTask.Text == "")
 		{
 			OnError?.Invoke(sender, "Please enter a goal you would like to complete.");
 		}
-		else if (!Int32.TryParse(entryEXP.Text, out parseCheck))
-		{
-            OnError?.Invoke(sender, "The value entered for EXP was not an interger.");
-        }
 		else
 		{
             OnSave?.Invoke(sender, e);

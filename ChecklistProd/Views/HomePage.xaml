@@ -79,6 +79,10 @@
                                 IsDestructive="True" 
                                 Clicked="Delete_Clicked" 
                                 CommandParameter="{Binding .}"/>
+                            <MenuItem 
+                                Text="Duplicate" 
+                                Clicked="Duplicate_Clicked" 
+                                CommandParameter="{Binding .}"/>
                         </ViewCell.ContextActions>
                         <!-- Ensure that all options in contextmenu are available in swipe items and the other way around. -->
                         <SwipeView>
@@ -89,6 +93,11 @@
                                         IsDestructive="True"
                                         BackgroundColor="Red"
                                         Clicked="Delete_Clicked"
+                                        CommandParameter="{Binding .}"/>
+                                    <SwipeItem
+                                        Text="Duplicate"
+                                        BackgroundColor="Blue"
+                                        Clicked="Duplicate_Clicked"
                                         CommandParameter="{Binding .}"/>
                                 </SwipeItems>
                             </SwipeView.RightItems>

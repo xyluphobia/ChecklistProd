@@ -22,7 +22,6 @@ public partial class EditGoalsPage : ContentPage
                 return;
 
             goalCtrl.Task = goal.Task;
-            goalCtrl.EXP = goal.EXP.ToString();
             goalCtrl.isPriority = goal.isPriority;
         }
     }
@@ -36,8 +35,8 @@ public partial class EditGoalsPage : ContentPage
     private void btnPushEdit_Clicked(object sender, EventArgs e)
     {
         goal.Task = goalCtrl.Task;
-        goal.EXP = Int32.Parse(goalCtrl.EXP);
         goal.isPriority = goalCtrl.isPriority;
+        goal.EXP = goal.isPriority ? 20 : 10;
 
         GoalRepository.UpdateGoal(goal.GoalId, goal);
         Shell.Current.GoToAsync("..");
