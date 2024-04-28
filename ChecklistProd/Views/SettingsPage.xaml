@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="ChecklistProd.Views.SettingsPage"
              Title="Settings">
 
@@ -32,8 +33,14 @@
             <Button x:Name="btnLogout"
                 Text="Logout"
                 Clicked="btnLogout_Clicked"/>
+            
+            <Button x:Name="btnDeleteAccount"
+                Text="Delete Account"
+                BackgroundColor="Red"
+                Clicked="btnDeleteAccount_Clicked"/>
         </HorizontalStackLayout>
-        
+
+
 
         <Button Grid.Row="3" Grid.Column="0" x:Name="btnBackToHome"
                 HeightRequest="40"

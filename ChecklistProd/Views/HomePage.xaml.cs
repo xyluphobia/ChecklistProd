@@ -22,14 +22,14 @@ public partial class HomePage : ContentPage
     {
         InitializeComponent();
         dailyTimerRunning = false;
-        GoalRepository.ReadData();
+        GoalRepository.ReadData(true);
     }
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
 
-        ReadLocalData();
+        ReadLocalData(true);
         checkAndResetGoalsDaily();
 
         if (isHardDay)
@@ -73,7 +73,7 @@ public partial class HomePage : ContentPage
         }
         localLoadingAsHardDay = false;
 
-        SaveLocalData();
+        SaveLocalData(true);
         LoadGoals();
     }
     private void btnSettings_Clicked(object sender, EventArgs e)
@@ -203,7 +203,7 @@ public partial class HomePage : ContentPage
                     progressBarLevel.Progress = currentLevelPercent;
 
                 progressBarUpdateSegmentCount();
-                SaveLocalData();
+                SaveLocalData(false);
             }
             else
             {
@@ -229,8 +229,8 @@ public partial class HomePage : ContentPage
             currentLevel += 1;
             lblCurrentLevel.Text = currentLevel.ToString();
 
-            GoalRepository.SaveData();
-            SaveLocalData();
+            GoalRepository.SaveData(true);
+            SaveLocalData(true);
 
             if (currentLevelPercent > 0)
                 progressBarLevel.Progress = currentLevelPercent;
@@ -267,8 +267,8 @@ public partial class HomePage : ContentPage
         }
 
         ProgressStreak();
-        GoalRepository.SaveData();
-        SaveLocalData();
+        GoalRepository.SaveData(true);
+        SaveLocalData(true);
     }
 
     private void LoadGoals()
@@ -286,10 +286,10 @@ public partial class HomePage : ContentPage
         }
 
         listGoals.ItemsSource = goals;
-        ReadLocalData();
+        ReadLocalData(true);
     }
 
-    public void SaveLocalData()
+    public void SaveLocalData(bool saveToSql)
     {
         var path = FileSystem.Current.AppDataDirectory;
         var fullPathData = Path.Combine(path, "LocalData.json");
@@ -306,9 +306,12 @@ public partial class HomePage : ContentPage
         });
 
         File.WriteAllText(fullPathData, serializedData);
+
+        if (saveToSql)
+            GoalRepository.SaveDataToSql(serializedData, "accountData");
     }
 
-    public void ReadLocalData() 
+    public void ReadLocalData(bool readFromSql) 
     {
         var path = FileSystem.Current.AppDataDirectory;
         var fullPathData = Path.Combine(path, "LocalData.json");
@@ -316,7 +319,7 @@ public partial class HomePage : ContentPage
         if (!File.Exists(fullPathData))
             return;
 
-        var rawData = File.ReadAllText(fullPathData);
+        var rawData = readFromSql ? GoalRepository.ReadDataFromSQL(2) : File.ReadAllText(fullPathData);
 
 
         try
@@ -360,7 +363,7 @@ public partial class HomePage : ContentPage
         Preferences.Default.Clear();
 
         UpdateReadData();
-        SaveLocalData();
+        SaveLocalData(true);
     }
     // when i build the function that resets the goals every 24hrs dont forget to build the weekly reset that gives back all hard days
     private void checkAndResetGoalsDaily()
@@ -416,7 +419,7 @@ public partial class HomePage : ContentPage
         if (DateTime.Today.DayOfWeek == DayOfWeek.Sunday || DaysUntilTodayFromRef >= DaysUntilSundayFromRef)
             WeeklyReset();
 
-        SaveLocalData();
+        SaveLocalData(true);
         UpdateReadData();
         LoadGoals();
     }
@@ -450,7 +453,7 @@ public partial class HomePage : ContentPage
         {
             currentStreak.Add(true);
             lblCurrentStreak.Text = currentStreak.Count.ToString();
-            SaveLocalData();
+            SaveLocalData(false);
         }
     }
 }

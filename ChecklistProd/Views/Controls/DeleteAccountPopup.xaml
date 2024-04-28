@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="ChecklistProd.Views.Controls.DeleteAccountPopup">
+
+
+    <StackLayout
+        BackgroundColor="Transparent"
+        MinimumHeightRequest="120"
+        VerticalOptions="Center"
+        HorizontalOptions="CenterAndExpand">
+        
+        <Border
+            Stroke="{StaticResource Gray600}"
+            StrokeShape="RoundRectangle 7, 7, 7, 7"
+            VerticalOptions="Center"
+            BackgroundColor="{StaticResource Gray600}">
+            
+            <Grid RowDefinitions="*, *, *"
+                MinimumHeightRequest="120"
+                WidthRequest="300"
+                Padding="7">
+                
+                <Label Grid.Row="0"
+                    Text="Are you sure?"
+                    FontSize="20"/>
+                <Label Grid.Row="1"
+                    Text="Once you delete your account it can not be recovered."
+                    FontSize="12"/>
+
+                <HorizontalStackLayout Grid.Row="2"
+                    HorizontalOptions="End"
+                    Spacing="5">
+                    <Button
+                        Text="Delete"
+                        BackgroundColor="Red"
+                        Clicked="onDeleteButtonClicked"
+                        HeightRequest="20"
+                        WidthRequest="75"/>
+                    <Button
+                        Text="Cancel"
+                        Background="Transparent"
+                        BorderWidth="1"
+                        BorderColor="Black"
+                        TextColor="Black"
+                        Clicked="onCancelButtonClicked"
+                        HeightRequest="20"
+                        WidthRequest="75"/>
+                </HorizontalStackLayout>
+            </Grid>
+        </Border>
+    </StackLayout>
+    
+</toolkit:Popup>

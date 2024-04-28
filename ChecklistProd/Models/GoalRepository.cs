@@ -10,6 +10,8 @@ using System.Diagnostics;
 using ChecklistProd.Views;
 using ChecklistProd.Services;
 using System.Data.SqlClient;
+using Microsoft.Maui.ApplicationModel.Communication;
+using Microsoft.WindowsAppSDK.Runtime.Packages;
 
 
 namespace ChecklistProd.Models
@@ -46,7 +48,7 @@ namespace ChecklistProd.Models
                 _goals.Remove(goal);
             }
 
-            SaveData();
+            SaveData(true);
         }
 
         public static void UpdateGoal(int goalId, Goal goal)
@@ -77,7 +79,7 @@ namespace ChecklistProd.Models
                     goalToUpdate.GoalColor = "Red";
             }
 
-            SaveData();
+            SaveData(true);
         }
 
         public static void AddGoal(Goal goal)
@@ -89,7 +91,7 @@ namespace ChecklistProd.Models
             goal.GoalId = maxId + 1; 
             _goals.Add(goal);
 
-            SaveData();
+            SaveData(true);
         }
 
         public static void ResetGoalCompletion()
@@ -104,7 +106,7 @@ namespace ChecklistProd.Models
             }
         }
 
-        public static void SaveData()
+        public static void SaveData(bool saveToSql)
         {
             var path = FileSystem.Current.AppDataDirectory;
             var fullPathGoals = Path.Combine(path, "GoalStorage.json");
@@ -112,21 +114,27 @@ namespace ChecklistProd.Models
             var serializedDataGoals = JsonSerializer.Serialize(_goals);
 
             File.WriteAllText(fullPathGoals, serializedDataGoals);
+
+            if (saveToSql)
+                SaveDataToSql(serializedDataGoals, "goals");
         }
 
-        public static void ReadData()
+        public static void ReadData(bool readFromSql)
         {
             var path = FileSystem.Current.AppDataDirectory;
             var fullPathGoals = Path.Combine(path, "GoalStorage.json");
 
             if (!File.Exists(fullPathGoals))
                 return;
-
-            var rawDataGoals = File.ReadAllText(fullPathGoals);
+            
+            var rawDataGoals = readFromSql ? ReadDataFromSQL(1) : File.ReadAllText(fullPathGoals);
 
             try
             {
-                _goals = JsonSerializer.Deserialize<List<Goal>>(rawDataGoals);
+                if (Equals(rawDataGoals, ""))
+                    _goals = [];
+                else
+                    _goals = JsonSerializer.Deserialize<List<Goal>>(rawDataGoals);
             }
             catch (Exception e)
             {
@@ -135,26 +143,54 @@ namespace ChecklistProd.Models
             }
         }
 
-        public static void SaveDataToSQL()
+        public static void SaveDataToSql(string serializedData, string keyToSaveTo)
         {
-            // get user email
-            // connect to sql server
-            // find user email in database and add goals to the "goals" column
-            // disconnect from sql server
-
             string userEmail = Preferences.Default.Get<string>(AuthService.EmailKey, "");
             if (Equals(userEmail, "")) return; // this should throw an error
 
-            
+            string? connectionString = Environment.GetEnvironmentVariable("ENV_SqlConnection");
+            using SqlConnection connection = new SqlConnection(connectionString);
+            using SqlCommand command = connection.CreateCommand();
+            command.CommandText = $"UPDATE UsersAndGoals SET {keyToSaveTo}='{serializedData}' WHERE email='{userEmail}'";
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (SqlException exception)
+            {
+                Debug.WriteLine("Error", exception.Message, "Ok");
+                return;
+            }
         }
 
-        public static void ReadDataFromSQL()
+        public static string ReadDataFromSQL(int columnToRetrieve)
         {
-            // get user email
-            // connect to sql server
-            // find user email in database and set goals to be equal to "goals" column unless it is null
-            // if its null set goals to new List<Goal>(){}
-            // discount from sql server
+            string userEmail = Preferences.Default.Get<string>(AuthService.EmailKey, "");
+            if (Equals(userEmail, "")) return ""; // this should throw an error
+
+            string? connectionString = Environment.GetEnvironmentVariable("ENV_SqlConnection");
+            using SqlConnection connection = new SqlConnection(connectionString);
+            using SqlCommand command = connection.CreateCommand();
+            command.CommandText = $"SELECT * FROM UsersAndGoals WHERE email = '{userEmail}'";
+
+            try
+            {
+                connection.Open();
+                using SqlDataReader reader = command.ExecuteReader();
+
+                if (!reader.Read() || reader.IsDBNull(columnToRetrieve))
+                    return "";
+
+                return (string)reader.GetValue(columnToRetrieve);
+
+            }
+            catch (SqlException exception)
+            {
+                Debug.WriteLine("Error", exception.Message, "Ok");
+                return "";
+            }
         }
     }
 }

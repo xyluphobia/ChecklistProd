@@ -41,10 +41,10 @@ public partial class SignUpPage : ContentPage
         using SqlConnection connection = new SqlConnection(connectionString);
         using SqlCommand command = connection.CreateCommand();
         command.CommandText = $"BEGIN TRANSACTION INSERT INTO Accounts (email, password) VALUES ('{email}', '{password}') INSERT INTO UsersAndGoals (email) VALUES ('{email}') COMMIT";
-        connection.Open();
 
         try
         {
+            connection.Open();
             command.ExecuteNonQuery();  
         }
         catch (SqlException exception)

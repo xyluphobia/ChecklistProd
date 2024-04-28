@@ -11,6 +11,14 @@ public partial class LoginPage : ContentPage
 		_authService = authService;
 	}
 
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        entryEmail.Text = "";
+        entryPassword.Text = "";
+    }
+
     private async void btnLogin_Clicked(object sender, EventArgs e)
     {
         string email = entryEmail.Text;

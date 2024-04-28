@@ -30,21 +30,31 @@ namespace ChecklistProd.Services
             using SqlConnection connection = new SqlConnection(connectionString);
             using SqlCommand command = connection.CreateCommand();
             command.CommandText = $"SELECT * FROM Accounts WHERE email = '{email}' AND password = '{password}'";
-            connection.Open();
 
-            using SqlDataReader reader = command.ExecuteReader();
-
-            if (!reader.HasRows)
+            try
             {
-                return false; // Creds DON'T exist in system
+                connection.Open();
+                using SqlDataReader reader = command.ExecuteReader();
+
+                if (!reader.HasRows)
+                {
+                    return false; // Creds DON'T exist in system
+                }
+            }
+            catch (SqlException exception)
+            {
+                Debug.WriteLine("Error", exception.Message, "Ok");
+                return false;
             }
 
+            Preferences.Default.Set(EmailKey, email);
             Preferences.Default.Set(AuthStateKey, true);
             return true; // Creds DO exist in system
         }
         public void Logout()
         {
             Preferences.Default.Remove(AuthStateKey);
+            Preferences.Default.Remove(EmailKey);
         }
     }
 }
