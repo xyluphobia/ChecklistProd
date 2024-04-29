@@ -1,14 +1,5 @@
-﻿using ChecklistProd.Views;
-using Microsoft.Maui.Controls;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Linq;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ChecklistProd.Services
 {
@@ -29,7 +20,7 @@ namespace ChecklistProd.Services
             string? connectionString = Environment.GetEnvironmentVariable("ENV_SqlConnection");
             using SqlConnection connection = new SqlConnection(connectionString);
             using SqlCommand command = connection.CreateCommand();
-            command.CommandText = $"SELECT * FROM Accounts WHERE email = '{email}' AND password = '{password}'";
+            command.CommandText = $"SELECT * FROM Accounts WHERE email = '{email}'";
 
             try
             {
@@ -39,6 +30,11 @@ namespace ChecklistProd.Services
                 if (!reader.HasRows)
                 {
                     return false; // Creds DON'T exist in system
+                }
+                if (reader.Read())
+                {
+                    if (!BCrypt.Net.BCrypt.EnhancedVerify(password, (string)reader[1]))
+                        return false;
                 }
             }
             catch (SqlException exception)

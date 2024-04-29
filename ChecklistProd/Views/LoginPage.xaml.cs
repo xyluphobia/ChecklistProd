@@ -22,21 +22,20 @@ public partial class LoginPage : ContentPage
     private async void btnLogin_Clicked(object sender, EventArgs e)
     {
         string email = entryEmail.Text;
-        string password = entryPassword.Text;
 
         if (behaviorEmailValidator.IsNotValid)
         {
             await DisplayAlert("Invalid Credentials", "The email address entered is invalid, please try again.", "Ok");
             return;
         }
-        else if (Equals(email, "")|| Equals(password, ""))
+        else if (Equals(email, "")|| Equals(entryPassword.Text, ""))
         {
             await DisplayAlert("Error", "Please fill out all fields.", "Ok");
             return;
         }
 
 
-        if (_authService.Login(email, password))
+        if (_authService.Login(email, entryPassword.Text))
         {
             await Shell.Current.GoToAsync(nameof(HomePage));
         }

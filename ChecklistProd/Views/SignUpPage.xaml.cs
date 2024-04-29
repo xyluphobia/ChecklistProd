@@ -13,7 +13,7 @@ public partial class SignUpPage : ContentPage
     private async void btnSignUp_Clicked(object sender, EventArgs e)
     {
         string email = entryEmail.Text;
-        string password = entryPassword.Text;
+        string password = BCrypt.Net.BCrypt.EnhancedHashPassword(entryPassword.Text, 13); // hash and salt password before 
 
         if (behaviorEmailValidator.IsNotValid)
         {
@@ -25,17 +25,22 @@ public partial class SignUpPage : ContentPage
             await DisplayAlert("Error", "Please fill out all fields.", "Ok");
             return;
         }
-        else if (!Equals(password, entryConfirmPassword.Text))
+        else if (!Equals(entryPassword.Text, entryConfirmPassword.Text))
         {
             await DisplayAlert("Error", "Passwords do not match.", "Ok");
+            entryPassword.Text = "";
+            entryConfirmPassword.Text = "";
             return;
         }
         else if (password.Length < 8)
         {
             await DisplayAlert("Error", "Passwords must be at least 8 characters long.", "Ok");
+            entryPassword.Text = "";
+            entryConfirmPassword.Text = "";
             return;
         }
-
+        entryPassword.Text = "";
+        entryConfirmPassword.Text = "";
 
         string? connectionString = Environment.GetEnvironmentVariable("ENV_SqlConnection");
         using SqlConnection connection = new SqlConnection(connectionString);
@@ -54,6 +59,7 @@ public partial class SignUpPage : ContentPage
                 await DisplayAlert("Error", "This email address is already registered to an account.", "Ok");
                 return;
             }
+            throw;
         }
 
         await DisplayAlert("Success!", "You have signed up successfully!", "Ok");

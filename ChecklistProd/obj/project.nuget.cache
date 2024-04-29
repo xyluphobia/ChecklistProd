@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "gE/eeslBEP+PGaX9w4+S09Zsh3AlGWo0OX7qZwlPuALl9YjjDOf+xtP8UHzgIrow8UdnBYcOv+aQ3VRvb73eHw==",
+  "dgSpecHash": "W9hZGheXNNGDqKPpbpcHGwhZ91SSpiAmy9G5J/cc2U9IxanVMCWtK5bASptOgjYnYD3OkFi7sC67oThl78OLqA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\ChecklistProd.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Matthew\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Matthew\\.nuget\\packages\\communitytoolkit.maui\\8.0.1\\communitytoolkit.maui.8.0.1.nupkg.sha512",
     "C:\\Users\\Matthew\\.nuget\\packages\\communitytoolkit.maui.core\\8.0.1\\communitytoolkit.maui.core.8.0.1.nupkg.sha512",
     "C:\\Users\\Matthew\\.nuget\\packages\\googlegson\\2.10.1.4\\googlegson.2.10.1.4.nupkg.sha512",
