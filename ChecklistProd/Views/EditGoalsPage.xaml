@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:ChecklistProd.Views.Controls"
              x:Class="ChecklistProd.Views.EditGoalsPage"
-             Title="Edit Goals">
+             Title="Edit Goal">
 
     <controls:GoalControl 
         x:Name="goalCtrl" 

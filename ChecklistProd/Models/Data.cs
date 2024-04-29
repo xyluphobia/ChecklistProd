@@ -13,6 +13,7 @@ namespace ChecklistProd.Models
         public int currentLevelData { get; set; }
         public bool isHardDayData { get; set; }
         public List<bool> currentStreakData { get; set; }
+        public bool streakCompletedTodayData { get; set; }
         public int weeksCompletedStreakData { get; set; }
         public int goalsCompletedTodayData { get; set; }
     }

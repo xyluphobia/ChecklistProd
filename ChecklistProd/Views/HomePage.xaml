@@ -3,9 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ChecklistProd.Views.HomePage"
              xmlns:progressBar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.Progressbar"
-             Title="Home">
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             Title="Home"
+             
+             >
     
-    <Grid RowDefinitions="30, 30, *, 50"
+    <Grid RowDefinitions="30, 30, *, 50" RowSpacing="7"
           ColumnDefinitions="96, *, 96"
           Margin="10">
         
@@ -19,9 +22,8 @@
                HorizontalOptions="End"
                Text="Hard Day"/>
 
-        <Grid ColumnDefinitions="50, *, 50"
-            Grid.Row="0" Grid.Column="1">
-            
+        <Grid Grid.Row="0" Grid.Column="1"
+            ColumnDefinitions="50, *, 50">
             <Label Grid.Column="1" x:Name="lblCurrentLevel"
                 Text="0"
                 VerticalOptions="Center" 
@@ -37,13 +39,12 @@
                 WidthRequest="30"
                 MinimumWidthRequest="20"
                 CornerRadius="0"
-                HorizontalOptions="Fill"
-                VerticalOptions="Fill"
+                HorizontalOptions="End"
                 Clicked="btnSettings_Clicked">
         </Button>
-        
 
-        <progressBar:SfLinearProgressBar Grid.Row="1" Grid.Column="1" x:Name="progressBarLevel"
+
+        <progressBar:SfLinearProgressBar Grid.Row="1" Grid.ColumnSpan="3" x:Name="progressBarLevel"
             ProgressHeight="20" SecondaryProgressHeight="20" TrackHeight="20"
             ProgressCornerRadius="10" SecondaryProgressCornerRadius="10" TrackCornerRadius="10"
             Progress="0"
@@ -55,69 +56,86 @@
             SecondaryProgressFill="#d0beb9"
             TrackFill="#957e77">
             <progressBar:SfLinearProgressBar.GradientStops>
-                <progressBar:ProgressGradientStop Color="#00bdaf" Value="0" />
+                <progressBar:ProgressGradientStop Color="#006e5e" Value="0" />
                 <progressBar:ProgressGradientStop Color="#2f7ecc" Value="25"/>
-                <progressBar:ProgressGradientStop Color="#e9648e" Value="50"/>
-                <progressBar:ProgressGradientStop Color="#fbb78a" Value="75"/>
+                <progressBar:ProgressGradientStop Color="#c1568f" Value="50"/>
+                <progressBar:ProgressGradientStop Color="#ff7e33" Value="75"/>
             </progressBar:SfLinearProgressBar.GradientStops>
         </progressBar:SfLinearProgressBar>
 
 
-        <ListView Grid.Row="2" Grid.Column="1" x:Name="listGoals" 
+        <ListView Grid.Row="2" Grid.ColumnSpan="3" x:Name="listGoals"
                 BackgroundColor="Transparent"
-                SeparatorColor="Aqua"
-                RowHeight="60"
-            
-                ItemSelected="listGoals_ItemSelected"
-                ItemTapped="listGoals_ItemTapped">
+                SeparatorColor="#900C3F"
+                RowHeight="60">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.ContextActions>
                             <MenuItem 
-                                Text="Delete" 
-                                IsDestructive="True" 
-                                Clicked="Delete_Clicked" 
-                                CommandParameter="{Binding .}"/>
+                                Text="Edit" 
+                                Clicked="EditGoal_Clicked"
+                                CommandParameter="{Binding GoalId}"/>
                             <MenuItem 
                                 Text="Duplicate" 
                                 Clicked="Duplicate_Clicked" 
                                 CommandParameter="{Binding .}"/>
+                            <MenuItem 
+                                Text="Delete" 
+                                IsDestructive="True" 
+                                Clicked="Delete_Clicked" 
+                                CommandParameter="{Binding GoalId}"/>
                         </ViewCell.ContextActions>
                         <!-- Ensure that all options in contextmenu are available in swipe items and the other way around. -->
                         <SwipeView>
-                            <SwipeView.RightItems>
-                                <SwipeItems Mode="Reveal">
+                            <SwipeView.LeftItems>
+                                <SwipeItems Mode="Execute">
                                     <SwipeItem
                                         Text="Delete"
                                         IsDestructive="True"
-                                        BackgroundColor="Red"
+                                        BackgroundColor="#C70039"
                                         Clicked="Delete_Clicked"
-                                        CommandParameter="{Binding .}"/>
+                                        CommandParameter="{Binding GoalId}"/>
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+                            <SwipeView.RightItems>
+                                <SwipeItems Mode="Reveal">
+                                    <SwipeItem
+                                        Text="Edit"
+                                        BackgroundColor="#00c58e"
+                                        Clicked="EditGoal_Clicked"
+                                        CommandParameter="{Binding GoalId}"/>
                                     <SwipeItem
                                         Text="Duplicate"
-                                        BackgroundColor="Blue"
+                                        BackgroundColor="DeepSkyBlue"
                                         Clicked="Duplicate_Clicked"
                                         CommandParameter="{Binding .}"/>
                                 </SwipeItems>
                             </SwipeView.RightItems>
 
-                            <Grid RowDefinitions="5, *, 5" ColumnDefinitions="50, 50, 30, *, 50" ColumnSpacing="10">
+                            <Grid RowDefinitions="5, *, 5" ColumnDefinitions="50, 50, *, 50" ColumnSpacing="10" 
+                                Padding="5, 2, 5, 2"
+                                BackgroundColor="{StaticResource White}">
                                 <Button Grid.Row="1" Grid.Column="0"
-                                    BackgroundColor="Orange" 
+                                    BackgroundColor="{StaticResource Partial}" 
                                     Text="P"
                                     Clicked="GoalPartialComplete_Clicked" 
                                     CommandParameter="{Binding GoalId}"/>
                                 <Button Grid.Row="1" Grid.Column="1"
-                                    BackgroundColor="Green" 
+                                    BackgroundColor="{StaticResource Complete}" 
                                     Text="C"
                                     Clicked="GoalComplete_Clicked" 
                                     CommandParameter="{Binding GoalId}"/>
-                                <Label Grid.Row="1" Grid.Column="3"
+                                
+                                <Label Grid.Row="1" Grid.Column="2"
                                     Text="{Binding Task}" 
-                                    TextColor="{Binding GoalColor}"/>
-                                <Button Grid.Row="1" Grid.Column="4" 
-                                    BackgroundColor="Gold" 
+                                    TextColor="{Binding GoalColor}"
+                                    HorizontalTextAlignment="Start"
+                                    VerticalTextAlignment="Start"
+                                    Background="Transparent"/>
+                                
+                                <Button Grid.Row="1" Grid.Column="3" 
+                                    BackgroundColor="{StaticResource Recomplete}" 
                                     Text="RC"
                                     Clicked="GoalReComplete_Clicked" 
                                     CommandParameter="{Binding GoalId}"
@@ -129,30 +147,31 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <HorizontalStackLayout Grid.Row="3" Grid.Column="1">
+        <HorizontalStackLayout Grid.Row="3" Grid.Column="0">
             <Label Text="Goals Per Day:" VerticalOptions="Center"></Label>
             <Entry 
                 x:Name="entryGoalsPerDay" 
-                Text="5" VerticalOptions="Center" 
+                Text="5" HorizontalTextAlignment="Center" VerticalOptions="Center" 
                 ClearButtonVisibility="WhileEditing" 
                 Keyboard="Numeric" ReturnType="Done" 
-                Margin="7, 0, 0, 0"
-                Unfocused="entryGoalsPerDay_Unfocused">
+                Margin="0, 0, 0, 0"
+                Unfocused="entryGoalsPerDay_Unfocused"
+                WidthRequest="25">
             </Entry>
         </HorizontalStackLayout>
 
-        <Button Grid.Row="3" Grid.Column="2"
-            x:Name="btnAddGoals"
-            Clicked="btnAddGoals_Clicked"
-            Text="Add Goals">
-        </Button>
-        
         <Button Grid.Row="3" Grid.Column="1"
             x:Name="btnReset"
             Clicked="btnReset_Clicked"
             Text="Reset"
             VerticalOptions="Center"
-            WidthRequest="100">
+            WidthRequest="80">
+        </Button>
+        
+        <Button Grid.Row="3" Grid.Column="2"
+            x:Name="btnAddGoals"
+            Clicked="btnAddGoals_Clicked"
+            Text="Add Goals">
         </Button>
 
     </Grid>

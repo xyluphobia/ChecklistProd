@@ -7,8 +7,8 @@
 
     
     <Grid RowDefinitions="50, 50, *, 50"
-          ColumnDefinitions="60, *, 60"
-          Margin="20, 20, 20, 20">
+          ColumnDefinitions="*"
+          Margin="10">
 
         <Label Grid.Row="0" Grid.Column="1" 
             Text="Settings"
@@ -18,27 +18,33 @@
             HorizontalOptions="Center"/>
 
 
-        <HorizontalStackLayout Grid.Row="1" Grid.Column="1">
-            <Label
-                Text="Hard Days Per Week:"
-                VerticalOptions="Center"/>
-            <Entry x:Name="entrySettingsHardDaysPerWeek"
-                VerticalOptions="Center"
-                HeightRequest="40"
-                MinimumHeightRequest="40"
-                Margin="7, 0, 0, 0"
-                Unfocused="entrySettingsHardDaysPerWeek_Unfocused"
-                Keyboard="Numeric" ReturnType="Done"/>
-            
-            <Button x:Name="btnLogout"
-                Text="Logout"
-                Clicked="btnLogout_Clicked"/>
-            
-            <Button x:Name="btnDeleteAccount"
-                Text="Delete Account"
-                BackgroundColor="Red"
-                Clicked="btnDeleteAccount_Clicked"/>
-        </HorizontalStackLayout>
+        <VerticalStackLayout Grid.Row="1" Grid.Column="0" Spacing="5">
+            <HorizontalStackLayout>
+                <Label
+                    Text="Hard Days Per Week:"
+                    VerticalOptions="Center"/>
+                <Entry x:Name="entrySettingsHardDaysPerWeek"
+                    VerticalOptions="Center"
+                    HeightRequest="40"
+                    MinimumHeightRequest="40"
+                    Margin="7, 0, 0, 0"
+                    Unfocused="entrySettingsHardDaysPerWeek_Unfocused"
+                    Keyboard="Numeric" ReturnType="Done"/>
+            </HorizontalStackLayout>
+
+            <Grid ColumnDefinitions="100, *, 100" Margin="25, 0, 25, 0">
+                <Button x:Name="btnLogout" Grid.Column="0"
+                    Text="Logout"
+                    Clicked="btnLogout_Clicked"
+                    WidthRequest="100"/>
+
+                <Button x:Name="btnDeleteAccount" Grid.Column="2"
+                    Text="Delete Account"
+                    BackgroundColor="Red"
+                    Clicked="btnDeleteAccount_Clicked"
+                    WidthRequest="100"/>
+            </Grid>
+        </VerticalStackLayout>
 
 
 

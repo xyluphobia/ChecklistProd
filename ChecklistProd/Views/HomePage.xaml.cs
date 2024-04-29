@@ -1,5 +1,5 @@
 using ChecklistProd.Models;
-using ChecklistProd.Services;
+using Syncfusion.Maui.Buttons;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Text.Json;
@@ -15,7 +15,8 @@ public partial class HomePage : ContentPage
     private bool isHardDay = false;
     private bool localLoadingAsHardDay = false;
     bool dailyTimerRunning;
-    List<bool> currentStreak = new List<bool>();
+    List<bool> currentStreak = [];
+    bool streakCompletedToday = false;
     int weeksCompletedStreak;
 
     public HomePage()
@@ -42,7 +43,7 @@ public partial class HomePage : ContentPage
         UpdateReadData();
     }
 
-    private void chkboxHardDay_CheckedChanged(object sender, CheckedChangedEventArgs e)
+    private void chkboxHardDay_CheckedChanged(object sender, Microsoft.Maui.Controls.CheckedChangedEventArgs e)
     {
         var priorityGoals = GoalRepository._goals.Where(goal => goal.isPriority);
         isHardDay = chkboxHardDay.IsChecked;
@@ -91,44 +92,51 @@ public partial class HomePage : ContentPage
      *   
      *   ((Goal)listGoals.SelectedItem).GoalId <- how to get goal by Id for popup editing
      */
-    private async void listGoals_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-    {
-        if (listGoals.SelectedItem == null)  // This event triggers on select and deselect, check ensures that logic doesn't run on deselect.
-            return;
-
-        await Shell.Current.GoToAsync($"{nameof(EditGoalsPage)}?Id={((Goal)listGoals.SelectedItem).GoalId}");
-    }
-
-    private void listGoals_ItemTapped(object sender, ItemTappedEventArgs e)
-    {
-        listGoals.SelectedItem = null;
-    }
-
     private void btnAddGoals_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync(nameof(AddGoalsPage));
     }
 
-    private void Delete_Clicked(object sender, EventArgs e)
+    private async void EditGoal_Clicked(object sender, EventArgs e)
     {
         var menuItem = sender as MenuItem;
-        var goal = menuItem.CommandParameter as Goal;
-
-        GoalRepository.DeleteGoalById(goal.GoalId);
-
-        LoadGoals();
+        await Shell.Current.GoToAsync($"{nameof(EditGoalsPage)}?Id={menuItem.CommandParameter}");
     }
     private void Duplicate_Clicked(object sender, EventArgs e)
     {
         var menuItem = sender as MenuItem;
         var goal = menuItem.CommandParameter as Goal;
 
-        goal.GoalComplete = false;
         goal.Status = "incomplete";
-        goal.GoalColor = "Red";
+        goal.GoalComplete = false;
 
         GoalRepository.AddGoal(goal);
 
+        LoadGoals();
+    }
+    private void Delete_Clicked(object sender, EventArgs e)
+    {
+        var menuItem = sender as MenuItem;;
+        GoalRepository.DeleteGoalById((int)menuItem.CommandParameter);
+
+        LoadGoals();
+    }
+
+    private void GoalPartialComplete_Clicked(object sender, EventArgs e)
+    {
+        var btnListItem = sender as Button;
+        var goal = GoalRepository.GetGoalById((int)btnListItem.CommandParameter);
+
+        progressLevelBarByRatio(0.5d, goal);
+
+        if (string.Equals(goal.Status, "partial"))
+            goal.Status = "complete";
+        else if (string.Equals(goal.Status, "recomplete"))
+            goal.Status = "recomplete";
+        else
+            goal.Status = "partial";
+
+        GoalRepository.UpdateGoal(goal.GoalId, goal);
         LoadGoals();
     }
 
@@ -155,24 +163,6 @@ public partial class HomePage : ContentPage
             goal.Status = "complete";
             goal.GoalComplete = true;
         }
-
-        GoalRepository.UpdateGoal(goal.GoalId, goal);
-        LoadGoals();
-    }
-
-    private void GoalPartialComplete_Clicked(object sender, EventArgs e)
-    {
-        var btnListItem = sender as Button;
-        var goal = GoalRepository.GetGoalById((int)btnListItem.CommandParameter);
-
-        progressLevelBarByRatio(0.5d, goal);
-
-        if (string.Equals(goal.Status, "partial"))
-            goal.Status = "complete";
-        else if (string.Equals(goal.Status, "recomplete"))
-            goal.Status = "recomplete";
-        else
-            goal.Status = "partial";
 
         GoalRepository.UpdateGoal(goal.GoalId, goal);
         LoadGoals();
@@ -288,16 +278,6 @@ public partial class HomePage : ContentPage
     {
         var goals = new ObservableCollection<Goal>(GoalRepository.GetGoals());
 
-        foreach (Goal goal in goals.Where(goal => goal.isPriority))
-        {
-            if (isHardDay)
-                goal.EXP = 20;
-            else
-                goal.EXP = 10;
-
-            GoalRepository.UpdateGoal(goal.GoalId, goal);
-        }
-
         listGoals.ItemsSource = goals;
         ReadLocalData(true);
     }
@@ -316,6 +296,7 @@ public partial class HomePage : ContentPage
             isHardDayData = isHardDay,
             currentStreakData = currentStreak,
             weeksCompletedStreakData = weeksCompletedStreak,
+            streakCompletedTodayData = streakCompletedToday,
         });
 
         File.WriteAllText(fullPathData, serializedData);
@@ -346,6 +327,7 @@ public partial class HomePage : ContentPage
             isHardDay = data.isHardDayData;
             currentStreak = data.currentStreakData;
             weeksCompletedStreak = data.weeksCompletedStreakData;
+            streakCompletedToday = data.streakCompletedTodayData;
         }
         catch (Exception e)
         {
@@ -372,7 +354,9 @@ public partial class HomePage : ContentPage
         isHardDay = false;
         currentStreak.Clear();
         weeksCompletedStreak = 0;
-        
+        streakCompletedToday = false;
+
+
         Preferences.Default.Clear();
 
         UpdateReadData();
@@ -423,7 +407,7 @@ public partial class HomePage : ContentPage
         {
             currentStreak.Clear();
         }
-
+        streakCompletedToday = false;
         goalsCompletedToday = 0;
         GoalRepository.ResetGoalCompletion();
         // if its sunday or if it has been sunday since the last referenced date
@@ -462,10 +446,11 @@ public partial class HomePage : ContentPage
     private void ProgressStreak()
     {
         goalsCompletedToday += 1;
-        if (goalsCompletedToday >= goalsPerDay || isHardDay)
+        if (goalsCompletedToday >= goalsPerDay && !streakCompletedToday || isHardDay && !streakCompletedToday)
         {
+            streakCompletedToday = true;
             currentStreak.Add(true);
-            lblCurrentStreak.Text = currentStreak.Count.ToString();
+            lblCurrentStreak.Text = (currentStreak.Count + (weeksCompletedStreak * 7)).ToString();
             SaveLocalData(false);
         }
     }

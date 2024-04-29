@@ -1,5 +1,5 @@
 using Microsoft.Maui.ApplicationModel.Communication;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.Text.RegularExpressions;
 
 namespace ChecklistProd.Views;

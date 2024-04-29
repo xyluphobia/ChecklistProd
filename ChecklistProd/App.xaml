@@ -11,11 +11,11 @@
             </ResourceDictionary.MergedDictionaries>
 
             <Style x:Key="InvalidEntryStyle" TargetType="Entry">
-                <Setter Property="TextColor" Value="Red" />
+                <Setter Property="TextColor" Value="#C70039" />
                 
             </Style>
             <Style x:Key="ValidEntryStyle" TargetType="Entry">
-                <Setter Property="TextColor" Value="Green" />
+                <Setter Property="TextColor" Value="#006e5e" />
             </Style>
             
         </ResourceDictionary>

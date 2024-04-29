@@ -2,7 +2,7 @@ using ChecklistProd.Services;
 using ChecklistProd.Views.Controls;
 using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.ApplicationModel.Communication;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace ChecklistProd.Views;
 

@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +12,7 @@ namespace ChecklistProd.Models
         public required string Task { get; set; }
         public int EXP { get; set; } = 10;
         public string Status { get; set; } = "incomplete";
-        public string GoalColor { get; set; } = "Red";
+        public string GoalColor { get; set; } = "#C70039";
         public bool isPriority { get; set; } = false;
         public bool GoalComplete { get; set; } = false;
     }

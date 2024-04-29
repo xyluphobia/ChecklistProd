@@ -20,7 +20,7 @@ public partial class AddGoalsPage : ContentPage
         {
             Task = goalCtrl.Task,
             Status = "incomplete",
-            GoalColor = "Red",
+            GoalColor = "#C70039",
             isPriority = goalCtrl.isPriority,
             GoalComplete = false,
     });

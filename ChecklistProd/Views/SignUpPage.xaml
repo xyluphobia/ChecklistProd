@@ -37,7 +37,8 @@
             ReturnType="Done"
             IsSpellCheckEnabled="False"
             MaxLength="50"
-            IsPassword="True"/>
+            IsPassword="True"
+            Completed="btnSignUp_Clicked"/>
 
         <Button x:Name="btnShowPassword"
             Text="Show Password"

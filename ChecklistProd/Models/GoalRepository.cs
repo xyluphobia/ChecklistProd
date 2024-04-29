@@ -9,9 +9,8 @@ using System.Text.Json;
 using System.Diagnostics;
 using ChecklistProd.Views;
 using ChecklistProd.Services;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using Microsoft.Maui.ApplicationModel.Communication;
-using Microsoft.WindowsAppSDK.Runtime.Packages;
 
 
 namespace ChecklistProd.Models
@@ -65,18 +64,18 @@ namespace ChecklistProd.Models
                 goalToUpdate.GoalComplete = goal.GoalComplete;
                 
                 if (string.Equals(goalToUpdate.Status, "complete"))
-                    goalToUpdate.GoalColor = "Green";
+                    goalToUpdate.GoalColor = "#005246";
                 else if (string.Equals(goalToUpdate.Status, "partial"))
-                    goalToUpdate.GoalColor = "YellowGreen";
+                    goalToUpdate.GoalColor = "#4c8077";
                 else if (string.Equals(goalToUpdate.Status, "recomplete"))
-                    goalToUpdate.GoalColor = "Gold";
+                    goalToUpdate.GoalColor = "#ff7e33";
                 else if (string.Equals(goalToUpdate.Status, "incomplete") || goalToUpdate.Status == null)
                     if (goalToUpdate.EXP > 10)
                         goalToUpdate.GoalColor = "MediumPurple";
                     else
-                        goalToUpdate.GoalColor = "Red";
+                        goalToUpdate.GoalColor = "#C70039";
                 else
-                    goalToUpdate.GoalColor = "Red";
+                    goalToUpdate.GoalColor = "#C70039";
             }
 
             SaveData(true);
@@ -97,7 +96,7 @@ namespace ChecklistProd.Models
 
         public static void ResetGoalCompletion()
         {
-            var completedGoals = _goals.Where(goal => goal.Status != "incomplete" || goal.GoalComplete == true);
+            var completedGoals = _goals.Where(goal => !Equals(goal.Status, "incomplete") || goal.GoalComplete == true);
 
             foreach (Goal goal in completedGoals)
             {

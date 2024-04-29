@@ -34,7 +34,7 @@
                     Spacing="5">
                     <Button
                         Text="Delete"
-                        BackgroundColor="Red"
+                        BackgroundColor="#C70039"
                         Clicked="onDeleteButtonClicked"
                         HeightRequest="20"
                         WidthRequest="75"/>

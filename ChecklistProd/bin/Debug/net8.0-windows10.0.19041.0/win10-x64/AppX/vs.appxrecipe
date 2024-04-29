@@ -29,25 +29,25 @@
     <AppXManifest Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-04-29T05:25:10.013</Modified>
+      <Modified>2024-04-29T10:06:33.404</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-04-29T03:44:50.199</Modified>
+      <Modified>2024-04-29T09:55:51.699</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ChecklistProd.runtimeconfig.json">
       <PackagePath>ChecklistProd.runtimeconfig.json</PackagePath>
-      <Modified>2024-04-29T03:44:49.997</Modified>
+      <Modified>2024-04-29T09:56:47.390</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ChecklistProd.dll">
       <PackagePath>ChecklistProd.dll</PackagePath>
-      <Modified>2024-04-29T05:25:09.746</Modified>
+      <Modified>2024-04-29T10:06:33.059</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>ChecklistProd.exe</PackagePath>
-      <Modified>2024-04-29T05:25:09.750</Modified>
+      <Modified>2024-04-29T10:06:33.061</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -55,23 +55,23 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
       <PackagePath>splashSplashScreen.scale-100.png</PackagePath>
-      <Modified>2024-04-27T18:56:51.092</Modified>
+      <Modified>2024-04-29T09:55:48.657</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
       <PackagePath>splashSplashScreen.scale-125.png</PackagePath>
-      <Modified>2024-04-27T18:56:51.101</Modified>
+      <Modified>2024-04-29T09:55:48.667</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
       <PackagePath>splashSplashScreen.scale-150.png</PackagePath>
-      <Modified>2024-04-27T18:56:51.115</Modified>
+      <Modified>2024-04-29T09:55:48.680</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
       <PackagePath>splashSplashScreen.scale-200.png</PackagePath>
-      <Modified>2024-04-27T18:56:51.133</Modified>
+      <Modified>2024-04-29T09:55:48.698</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
       <PackagePath>splashSplashScreen.scale-400.png</PackagePath>
-      <Modified>2024-04-27T18:56:51.202</Modified>
+      <Modified>2024-04-29T09:55:48.769</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf">
       <PackagePath>OpenSans-Regular.ttf</PackagePath>
@@ -83,211 +83,211 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
       <PackagePath>appicon.ico</PackagePath>
-      <Modified>2024-04-27T18:56:52.336</Modified>
+      <Modified>2024-04-29T09:55:49.948</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
       <PackagePath>appiconLargeTile.scale-100.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.614</Modified>
+      <Modified>2024-04-29T09:55:50.240</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
       <PackagePath>appiconLargeTile.scale-125.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.628</Modified>
+      <Modified>2024-04-29T09:55:50.254</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
       <PackagePath>appiconLargeTile.scale-150.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.640</Modified>
+      <Modified>2024-04-29T09:55:50.267</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
       <PackagePath>appiconLargeTile.scale-200.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.660</Modified>
+      <Modified>2024-04-29T09:55:50.286</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
       <PackagePath>appiconLargeTile.scale-400.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.734</Modified>
+      <Modified>2024-04-29T09:55:50.362</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-16.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.410</Modified>
+      <Modified>2024-04-29T09:55:50.032</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-24.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.414</Modified>
+      <Modified>2024-04-29T09:55:50.036</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-256.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.429</Modified>
+      <Modified>2024-04-29T09:55:50.052</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-32.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.417</Modified>
+      <Modified>2024-04-29T09:55:50.040</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-48.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.421</Modified>
+      <Modified>2024-04-29T09:55:50.044</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-16.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.388</Modified>
+      <Modified>2024-04-29T09:55:50.007</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-24.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.392</Modified>
+      <Modified>2024-04-29T09:55:50.011</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-256.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.406</Modified>
+      <Modified>2024-04-29T09:55:50.029</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-32.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.395</Modified>
+      <Modified>2024-04-29T09:55:50.016</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-48.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.398</Modified>
+      <Modified>2024-04-29T09:55:50.019</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
       <PackagePath>appiconLogo.scale-100.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.344</Modified>
+      <Modified>2024-04-29T09:55:49.955</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
       <PackagePath>appiconLogo.scale-125.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.347</Modified>
+      <Modified>2024-04-29T09:55:49.960</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
       <PackagePath>appiconLogo.scale-150.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.351</Modified>
+      <Modified>2024-04-29T09:55:49.964</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
       <PackagePath>appiconLogo.scale-200.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.355</Modified>
+      <Modified>2024-04-29T09:55:49.970</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
       <PackagePath>appiconLogo.scale-400.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.361</Modified>
+      <Modified>2024-04-29T09:55:49.977</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png">
       <PackagePath>appiconLogo.targetsize-16.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.364</Modified>
+      <Modified>2024-04-29T09:55:49.982</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png">
       <PackagePath>appiconLogo.targetsize-24.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.368</Modified>
+      <Modified>2024-04-29T09:55:49.986</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png">
       <PackagePath>appiconLogo.targetsize-256.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.384</Modified>
+      <Modified>2024-04-29T09:55:50.003</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png">
       <PackagePath>appiconLogo.targetsize-32.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.372</Modified>
+      <Modified>2024-04-29T09:55:49.990</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png">
       <PackagePath>appiconLogo.targetsize-48.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.376</Modified>
+      <Modified>2024-04-29T09:55:49.994</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
       <PackagePath>appiconMediumTile.scale-100.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.484</Modified>
+      <Modified>2024-04-29T09:55:50.108</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
       <PackagePath>appiconMediumTile.scale-125.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.490</Modified>
+      <Modified>2024-04-29T09:55:50.114</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
       <PackagePath>appiconMediumTile.scale-150.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.497</Modified>
+      <Modified>2024-04-29T09:55:50.122</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
       <PackagePath>appiconMediumTile.scale-200.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.508</Modified>
+      <Modified>2024-04-29T09:55:50.131</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
       <PackagePath>appiconMediumTile.scale-400.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.527</Modified>
+      <Modified>2024-04-29T09:55:50.151</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
       <PackagePath>appiconSmallTile.scale-100.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.456</Modified>
+      <Modified>2024-04-29T09:55:50.079</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
       <PackagePath>appiconSmallTile.scale-125.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.460</Modified>
+      <Modified>2024-04-29T09:55:50.083</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
       <PackagePath>appiconSmallTile.scale-150.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.464</Modified>
+      <Modified>2024-04-29T09:55:50.087</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
       <PackagePath>appiconSmallTile.scale-200.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.469</Modified>
+      <Modified>2024-04-29T09:55:50.092</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
       <PackagePath>appiconSmallTile.scale-400.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.478</Modified>
+      <Modified>2024-04-29T09:55:50.102</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
       <PackagePath>appiconStoreLogo.scale-100.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.433</Modified>
+      <Modified>2024-04-29T09:55:50.055</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
       <PackagePath>appiconStoreLogo.scale-125.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.436</Modified>
+      <Modified>2024-04-29T09:55:50.060</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
       <PackagePath>appiconStoreLogo.scale-150.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.440</Modified>
+      <Modified>2024-04-29T09:55:50.064</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
       <PackagePath>appiconStoreLogo.scale-200.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.445</Modified>
+      <Modified>2024-04-29T09:55:50.069</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
       <PackagePath>appiconStoreLogo.scale-400.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.451</Modified>
+      <Modified>2024-04-29T09:55:50.075</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
       <PackagePath>appiconWideTile.scale-100.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.534</Modified>
+      <Modified>2024-04-29T09:55:50.158</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
       <PackagePath>appiconWideTile.scale-125.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.542</Modified>
+      <Modified>2024-04-29T09:55:50.166</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
       <PackagePath>appiconWideTile.scale-150.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.552</Modified>
+      <Modified>2024-04-29T09:55:50.177</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
       <PackagePath>appiconWideTile.scale-200.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.567</Modified>
+      <Modified>2024-04-29T09:55:50.191</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
       <PackagePath>appiconWideTile.scale-400.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.604</Modified>
+      <Modified>2024-04-29T09:55:50.228</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
       <PackagePath>dotnet_bot.scale-100.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.337</Modified>
+      <Modified>2024-04-29T09:55:49.949</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png">
       <PackagePath>dotnet_bot.scale-125.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.344</Modified>
+      <Modified>2024-04-29T09:55:49.955</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png">
       <PackagePath>dotnet_bot.scale-150.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.353</Modified>
+      <Modified>2024-04-29T09:55:49.964</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png">
       <PackagePath>dotnet_bot.scale-200.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.366</Modified>
+      <Modified>2024-04-29T09:55:49.978</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
       <PackagePath>dotnet_bot.scale-400.png</PackagePath>
-      <Modified>2024-04-27T18:56:52.411</Modified>
+      <Modified>2024-04-29T09:55:50.030</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ChecklistProd.deps.json">
       <PackagePath>ChecklistProd.deps.json</PackagePath>
-      <Modified>2024-04-29T03:44:49.913</Modified>
+      <Modified>2024-04-29T09:56:47.389</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.31\lib\net6.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
@@ -296,6 +296,14 @@
     <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.31\lib\net6.0\WinRT.Runtime.dll">
       <PackagePath>WinRT.Runtime.dll</PackagePath>
       <Modified>2023-10-16T19:41:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\azure.core\1.35.0\lib\net6.0\Azure.Core.dll">
+      <PackagePath>Azure.Core.dll</PackagePath>
+      <Modified>2023-09-07T17:50:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\azure.identity\1.10.3\lib\netstandard2.0\Azure.Identity.dll">
+      <PackagePath>Azure.Identity.dll</PackagePath>
+      <Modified>2023-10-18T19:59:42.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\bcrypt.net-next\4.0.3\lib\net6.0\BCrypt.Net-Next.dll">
       <PackagePath>BCrypt.Net-Next.dll</PackagePath>
@@ -308,6 +316,14 @@
     <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\communitytoolkit.maui.core\8.0.1\lib\net8.0-windows10.0.19041\CommunityToolkit.Maui.Core.dll">
       <PackagePath>CommunityToolkit.Maui.Core.dll</PackagePath>
       <Modified>2024-04-04T14:54:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.bcl.asyncinterfaces\1.1.1\lib\netstandard2.1\Microsoft.Bcl.AsyncInterfaces.dll">
+      <PackagePath>Microsoft.Bcl.AsyncInterfaces.dll</PackagePath>
+      <Modified>2020-04-14T22:39:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.data.sqlclient\5.2.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll">
+      <PackagePath>Microsoft.Data.SqlClient.dll</PackagePath>
+      <Modified>2024-02-28T03:33:14.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.extensions.configuration\8.0.0\lib\net8.0\Microsoft.Extensions.Configuration.dll">
       <PackagePath>Microsoft.Extensions.Configuration.dll</PackagePath>
@@ -349,6 +365,42 @@
       <PackagePath>Microsoft.Graphics.Canvas.Interop.dll</PackagePath>
       <Modified>2024-03-11T15:36:42.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.identity.client\4.56.0\lib\net6.0-windows7.0\Microsoft.Identity.Client.dll">
+      <PackagePath>Microsoft.Identity.Client.dll</PackagePath>
+      <Modified>2023-09-05T18:25:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.identity.client.extensions.msal\4.56.0\lib\netstandard2.0\Microsoft.Identity.Client.Extensions.Msal.dll">
+      <PackagePath>Microsoft.Identity.Client.Extensions.Msal.dll</PackagePath>
+      <Modified>2023-09-05T18:31:58.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.identity.client.nativeinterop\0.13.8\lib\netstandard2.0\Microsoft.Identity.Client.NativeInterop.dll">
+      <PackagePath>Microsoft.Identity.Client.NativeInterop.dll</PackagePath>
+      <Modified>2023-05-09T19:24:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.identitymodel.abstractions\6.35.0\lib\net6.0\Microsoft.IdentityModel.Abstractions.dll">
+      <PackagePath>Microsoft.IdentityModel.Abstractions.dll</PackagePath>
+      <Modified>2023-12-01T04:56:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.identitymodel.jsonwebtokens\6.35.0\lib\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll">
+      <PackagePath>Microsoft.IdentityModel.JsonWebTokens.dll</PackagePath>
+      <Modified>2023-12-01T04:34:00.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.identitymodel.logging\6.35.0\lib\net6.0\Microsoft.IdentityModel.Logging.dll">
+      <PackagePath>Microsoft.IdentityModel.Logging.dll</PackagePath>
+      <Modified>2023-12-01T04:35:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.identitymodel.protocols\6.35.0\lib\net6.0\Microsoft.IdentityModel.Protocols.dll">
+      <PackagePath>Microsoft.IdentityModel.Protocols.dll</PackagePath>
+      <Modified>2023-12-01T04:37:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.identitymodel.protocols.openidconnect\6.35.0\lib\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll">
+      <PackagePath>Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</PackagePath>
+      <Modified>2023-12-01T04:48:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.identitymodel.tokens\6.35.0\lib\net6.0\Microsoft.IdentityModel.Tokens.dll">
+      <PackagePath>Microsoft.IdentityModel.Tokens.dll</PackagePath>
+      <Modified>2023-12-01T04:41:50.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.maui.controls.compatibility\8.0.20\lib\net8.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.dll">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.dll</PackagePath>
       <Modified>2024-04-09T15:55:32.000</Modified>
@@ -376,6 +428,22 @@
     <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.maui.graphics.win2d.winui.desktop\8.0.20\lib\net8.0-windows10.0.19041\Microsoft.Maui.Graphics.Win2D.WinUI.Desktop.dll">
       <PackagePath>Microsoft.Maui.Graphics.Win2D.WinUI.Desktop.dll</PackagePath>
       <Modified>2024-04-09T15:55:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.sqlserver.server\1.0.0\lib\netstandard2.0\Microsoft.SqlServer.Server.dll">
+      <PackagePath>Microsoft.SqlServer.Server.dll</PackagePath>
+      <Modified>2022-01-27T17:19:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.web.webview2\1.0.864.35\lib\netcoreapp3.0\Microsoft.Web.WebView2.Core.dll">
+      <PackagePath>Microsoft.Web.WebView2.Core.dll</PackagePath>
+      <Modified>2021-05-25T07:31:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.web.webview2\1.0.864.35\lib\netcoreapp3.0\Microsoft.Web.WebView2.WinForms.dll">
+      <PackagePath>Microsoft.Web.WebView2.WinForms.dll</PackagePath>
+      <Modified>2021-05-25T07:30:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.web.webview2\1.0.864.35\lib\netcoreapp3.0\Microsoft.Web.WebView2.Wpf.dll">
+      <PackagePath>Microsoft.Web.WebView2.Wpf.dll</PackagePath>
+      <Modified>2021-05-25T07:31:02.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.windowsappsdk\1.5.240311000\lib\net6.0-windows10.0.18362.0\Microsoft.InteractiveExperiences.Projection.dll">
       <PackagePath>Microsoft.InteractiveExperiences.Projection.dll</PackagePath>
@@ -437,13 +505,17 @@
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.Net.dll</PackagePath>
       <Modified>2024-03-11T10:57:44.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\syncfusion.licensing\25.1.40\lib\net8.0\Syncfusion.Licensing.dll">
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\syncfusion.licensing\25.1.41\lib\net8.0\Syncfusion.Licensing.dll">
       <PackagePath>Syncfusion.Licensing.dll</PackagePath>
-      <Modified>2024-04-15T08:06:58.000</Modified>
+      <Modified>2024-04-22T08:09:14.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\syncfusion.maui.core\25.1.40\lib\net8.0-windows10.0.19041.0\Syncfusion.Maui.Core.dll">
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\syncfusion.maui.buttons\25.1.41\lib\net8.0-windows10.0.19041.0\Syncfusion.Maui.Buttons.dll">
+      <PackagePath>Syncfusion.Maui.Buttons.dll</PackagePath>
+      <Modified>2024-04-22T07:59:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\syncfusion.maui.core\25.1.41\lib\net8.0-windows10.0.19041.0\Syncfusion.Maui.Core.dll">
       <PackagePath>Syncfusion.Maui.Core.dll</PackagePath>
-      <Modified>2024-04-15T07:51:04.000</Modified>
+      <Modified>2024-04-22T07:57:54.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\syncfusion.maui.progressbar\25.1.40\lib\net8.0-windows10.0.19041.0\Syncfusion.Maui.ProgressBar.dll">
       <PackagePath>Syncfusion.Maui.ProgressBar.dll</PackagePath>
@@ -453,9 +525,61 @@
       <PackagePath>System.Data.SqlClient.dll</PackagePath>
       <Modified>2023-10-26T23:34:10.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\system.identitymodel.tokens.jwt\6.35.0\lib\net6.0\System.IdentityModel.Tokens.Jwt.dll">
+      <PackagePath>System.IdentityModel.Tokens.Jwt.dll</PackagePath>
+      <Modified>2023-12-01T04:31:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\system.memory.data\1.0.2\lib\netstandard2.0\System.Memory.Data.dll">
+      <PackagePath>System.Memory.Data.dll</PackagePath>
+      <Modified>2021-04-08T16:45:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\system.runtime.caching\8.0.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll">
+      <PackagePath>System.Runtime.Caching.dll</PackagePath>
+      <Modified>2023-10-31T15:00:12.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\system.speech\8.0.0\runtimes\win\lib\net8.0\System.Speech.dll">
       <PackagePath>System.Speech.dll</PackagePath>
       <Modified>2023-10-31T15:00:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.data.sqlclient\5.2.0\lib\net8.0\de\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>de\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2024-02-28T03:32:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.data.sqlclient\5.2.0\lib\net8.0\es\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>es\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2024-02-28T03:32:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.data.sqlclient\5.2.0\lib\net8.0\fr\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>fr\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2024-02-28T03:33:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.data.sqlclient\5.2.0\lib\net8.0\it\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>it\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2024-02-28T03:32:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.data.sqlclient\5.2.0\lib\net8.0\ja\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>ja\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2024-02-28T03:32:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.data.sqlclient\5.2.0\lib\net8.0\ko\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>ko\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2024-02-28T03:32:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.data.sqlclient\5.2.0\lib\net8.0\pt-BR\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>pt-BR\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2024-02-28T03:32:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.data.sqlclient\5.2.0\lib\net8.0\ru\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>ru\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2024-02-28T03:32:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.data.sqlclient\5.2.0\lib\net8.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>zh-Hans\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2024-02-28T03:32:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.data.sqlclient\5.2.0\lib\net8.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>zh-Hant\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2024-02-28T03:32:54.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.maui.controls.core\8.0.20\lib\net8.0-windows10.0.19041\ar\Microsoft.Maui.Controls.resources.dll">
       <PackagePath>ar\Microsoft.Maui.Controls.resources.dll</PackagePath>
@@ -593,9 +717,25 @@
       <PackagePath>zh-Hant\Microsoft.Maui.Controls.resources.dll</PackagePath>
       <Modified>2024-04-09T15:53:36.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\syncfusion.maui.buttons\25.1.41\lib\net8.0-windows10.0.19041.0\en-US\Syncfusion.Maui.Buttons.resources.dll">
+      <PackagePath>en-US\Syncfusion.Maui.Buttons.resources.dll</PackagePath>
+      <Modified>2024-04-22T07:59:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.data.sqlclient.sni.runtime\5.2.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll">
+      <PackagePath>Microsoft.Data.SqlClient.SNI.dll</PackagePath>
+      <Modified>2024-02-20T22:30:22.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.graphics.win2d\1.2.0\runtimes\win-x64\native\Microsoft.Graphics.Canvas.dll">
       <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
       <Modified>2024-03-11T15:36:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.identity.client.nativeinterop\0.13.8\runtimes\win-x64\native\msalruntime.dll">
+      <PackagePath>msalruntime.dll</PackagePath>
+      <Modified>2023-05-09T19:24:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.web.webview2\1.0.864.35\runtimes\win-x64\native\WebView2Loader.dll">
+      <PackagePath>WebView2Loader.dll</PackagePath>
+      <Modified>2021-05-25T07:30:52.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\microsoft.windowsappsdk\1.5.240311000\runtimes\win10-x64\native\Microsoft.WindowsAppRuntime.Bootstrap.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.dll</PackagePath>
@@ -617,9 +757,9 @@
       <PackagePath>Microsoft.Maui.pri</PackagePath>
       <Modified>2024-04-09T15:24:58.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\syncfusion.maui.core\25.1.40\lib\net8.0-windows10.0.19041.0\Syncfusion.Maui.Core.pri">
+    <AppxPackagedFile Include="C:\Users\Matthew\.nuget\packages\syncfusion.maui.core\25.1.41\lib\net8.0-windows10.0.19041.0\Syncfusion.Maui.Core.pri">
       <PackagePath>Syncfusion.Maui.Core.pri</PackagePath>
-      <Modified>2024-04-15T07:51:04.000</Modified>
+      <Modified>2024-04-22T07:57:54.000</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

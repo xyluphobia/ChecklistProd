@@ -2,21 +2,10 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ChecklistProd.Views.Controls.GoalControl">
-    
-    <VerticalStackLayout Spacing="5" Margin="10, 10, 10, 10">
-        <Label 
-        x:Name="lblName"
-        Text="Welcome to .NET MAUI!"
-        VerticalOptions="Center" 
-        HorizontalOptions="Center" />
-        <Button
-        x:Name="btnCancelEditGoals"
-        Clicked="btnCancelEditGoals_Clicked"
-        Text="Cancel">
-        </Button>
 
-
-        <VerticalStackLayout Spacing="10" Margin="20, 20, 20, 0">
+    <Grid RowDefinitions="auto, 50, *, 50" RowSpacing="5" Margin="10">
+        
+        <VerticalStackLayout Spacing="10" Margin="10" Grid.Row="0">
             <Frame Padding="10, 2, 10, 2">
                 <HorizontalStackLayout>
                     <Label Text="Goal:" VerticalOptions="Center" WidthRequest="43"></Label>
@@ -29,9 +18,15 @@
                 <Label Text="Priority goal on hard days" VerticalOptions="Center"/>
             </HorizontalStackLayout>
 
-            <Button x:Name="btnPushEdit" Text="Save" Clicked="btnPushEdit_Clicked"></Button>
+            <Button x:Name="btnPushEdit"
+                Text="Save" 
+                Clicked="btnPushEdit_Clicked"/>
         </VerticalStackLayout>
 
 
-    </VerticalStackLayout>
+        <Button x:Name="btnCancelEditGoals" Grid.Row="3"
+            Clicked="btnCancelEditGoals_Clicked"
+            Text="Cancel"/>
+
+    </Grid>
 </ContentView>
