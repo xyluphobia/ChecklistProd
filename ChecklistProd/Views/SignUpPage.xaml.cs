@@ -14,14 +14,13 @@ public partial class SignUpPage : ContentPage
     private async void btnSignUp_Clicked(object sender, EventArgs e)
     {
         string email = entryEmail.Text;
-        string password = BCrypt.Net.BCrypt.EnhancedHashPassword(entryPassword.Text, 13); // hash and salt password before 
 
         if (behaviorEmailValidator.IsNotValid)
         {
             await DisplayAlert("Invalid Email", "The email address entered is not a valid email, please try again.", "Ok");
             return;
         }
-        else if (Equals(email, "") || Equals(entryPassword.Text, "") || Equals(entryConfirmPassword.Text, ""))
+        else if (Equals(email, "") || Equals(entryPassword.Text, "") || Equals(entryConfirmPassword.Text, "") || email == null || entryPassword == null || entryConfirmPassword == null)
         {
             await DisplayAlert("Error", "Please fill out all fields.", "Ok");
             return;
@@ -37,6 +36,8 @@ public partial class SignUpPage : ContentPage
         {
             return;
         }
+
+        string password = BCrypt.Net.BCrypt.EnhancedHashPassword(entryPassword.Text, 13); // hash and salt password before 
 
         string? connectionString = Environment.GetEnvironmentVariable("ENV_SqlConnection");
         using SqlConnection connection = new SqlConnection(connectionString);
@@ -115,12 +116,6 @@ public partial class SignUpPage : ContentPage
 
         DisplayAlert("Error", $"Your password must be at least 10 characters long and contain at least 1 uppercase letter, 1 special character and 1 number. You are missing {messageInsert}.", "Ok");
         return false;
-    }
-
-    private void btnShowPassword_Clicked(object sender, EventArgs e)
-    {
-        entryPassword.IsPassword = !entryPassword.IsPassword;
-        entryConfirmPassword.IsPassword = !entryConfirmPassword.IsPassword;
     }
 
     private async void btnGoToLogin_Clicked(object sender, EventArgs e)

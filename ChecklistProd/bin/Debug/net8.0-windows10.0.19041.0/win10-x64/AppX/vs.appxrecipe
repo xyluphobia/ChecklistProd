@@ -29,7 +29,7 @@
     <AppXManifest Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-04-29T10:06:33.404</Modified>
+      <Modified>2024-04-29T12:08:48.872</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ChecklistProd.dll">
       <PackagePath>ChecklistProd.dll</PackagePath>
-      <Modified>2024-04-29T10:06:33.059</Modified>
+      <Modified>2024-04-29T12:08:47.968</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>ChecklistProd.exe</PackagePath>
-      <Modified>2024-04-29T10:06:33.061</Modified>
+      <Modified>2024-04-29T12:08:48.006</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matthew\Desktop\ChecklistProd\ChecklistProd\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>

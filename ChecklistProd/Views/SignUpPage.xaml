@@ -2,11 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              x:Class="ChecklistProd.Views.SignUpPage"
              Title="SignUpPage">
 
 
-    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+    <VerticalStackLayout VerticalOptions="CenterAndExpand" Margin="300, 100, 300, 100">
 
         <Entry x:Name="entryEmail"
             Placeholder="Email"
@@ -29,8 +30,17 @@
             ReturnType="Done"
             IsSpellCheckEnabled="False"
             MaxLength="50"     
-            IsPassword="True"/>
-        
+            IsPassword="True">
+            <Entry.Triggers>
+                <DataTrigger 
+                    TargetType="Entry"
+                    Binding="{Binding Source={x:Reference chkboxShowPassword}, Path=IsChecked, Mode=TwoWay}"
+                    Value="true">
+                <Setter Property="IsPassword" Value="False"/>
+                </DataTrigger>
+            </Entry.Triggers>
+        </Entry>
+
         <Entry x:Name="entryConfirmPassword"
             Placeholder="Confirm Password"
             Keyboard="Text"
@@ -38,11 +48,20 @@
             IsSpellCheckEnabled="False"
             MaxLength="50"
             IsPassword="True"
-            Completed="btnSignUp_Clicked"/>
+            Completed="btnSignUp_Clicked">
+            <Entry.Triggers>
+                <DataTrigger 
+                    TargetType="Entry"
+                    Binding="{Binding Source={x:Reference chkboxShowPassword}, Path=IsChecked, Mode=TwoWay}"
+                    Value="true">
+                    <Setter Property="IsPassword" Value="False"/>
+                </DataTrigger>
+            </Entry.Triggers>
+        </Entry>
 
-        <Button x:Name="btnShowPassword"
+        <buttons:SfCheckBox x:Name="chkboxShowPassword"
             Text="Show Password"
-            Clicked="btnShowPassword_Clicked"/>
+            TextColor="White"/>
 
         <Button x:Name="btnSignUp"
             Text="Sign Up"

@@ -2,12 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              x:Class="ChecklistProd.Views.LoginPage"
              Title="Login">
-    
 
-    
-    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+
+
+    <VerticalStackLayout VerticalOptions="CenterAndExpand" Margin="300, 100, 300, 100">
 
         <Entry x:Name="entryEmail"
             Placeholder="Email"
@@ -30,21 +31,36 @@
             IsSpellCheckEnabled="False"
             MaxLength="50"
             IsPassword="True"
-            Completed="btnLogin_Clicked"/>
+            Completed="btnLogin_Clicked">
+            <Entry.Triggers>
+                <DataTrigger 
+                    TargetType="Entry"
+                    Binding="{Binding Source={x:Reference chkboxShowPassword}, Path=IsChecked, Mode=TwoWay}"
+                    Value="true">
+                    <Setter Property="IsPassword" Value="False"/>
+                </DataTrigger>
+            </Entry.Triggers>
+        </Entry>
 
-        <Button x:Name="btnShowPassword"
-            Text="Show Password"
-            Clicked="btnShowPassword_Clicked"/>
-
-        <Button x:Name="btnLogin"
-            Text="Login"
-            Clicked="btnLogin_Clicked"/>
+        <Grid ColumnDefinitions="auto, *, 140" Margin="0, 10, 0, 0">
+            <buttons:SfCheckBox Grid.Column="0" x:Name="chkboxShowPassword"
+                Text="Show Password"
+                TextColor="White"/>
+            <Button Grid.Column="2" x:Name="btnLogin"
+                Text="Login"
+                Clicked="btnLogin_Clicked"
+                WidthRequest="140"
+                HorizontalOptions="End"/>
+        </Grid>
         
         <Label
-            Text="Don't have an account?" />
+            Text="Don't have an account?" 
+            HorizontalOptions="Center"/>
         <Button x:Name="btnGoToSignUp"
             Text="Sign up!"
-            Clicked="btnGoToSignUp_Clicked"/>
+            Clicked="btnGoToSignUp_Clicked"
+            WidthRequest="140"
+            HorizontalOptions="Center"/>
 
     </VerticalStackLayout>
 </ContentPage>

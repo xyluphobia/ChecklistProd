@@ -45,11 +45,6 @@ public partial class LoginPage : ContentPage
         }
     }
 
-    private void btnShowPassword_Clicked(object sender, EventArgs e)
-    {
-        entryPassword.IsPassword = !entryPassword.IsPassword;
-    }
-
     private async void btnGoToSignUp_Clicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(SignUpPage));

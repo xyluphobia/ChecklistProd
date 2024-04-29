@@ -6,7 +6,7 @@
              Title="Settings">
 
     
-    <Grid RowDefinitions="50, 50, *, 50"
+    <Grid RowDefinitions="50, *, 50"
           ColumnDefinitions="*"
           Margin="10">
 
@@ -36,19 +36,19 @@
                 <Button x:Name="btnLogout" Grid.Column="0"
                     Text="Logout"
                     Clicked="btnLogout_Clicked"
-                    WidthRequest="100"/>
+                    WidthRequest="140"/>
 
                 <Button x:Name="btnDeleteAccount" Grid.Column="2"
                     Text="Delete Account"
                     BackgroundColor="Red"
                     Clicked="btnDeleteAccount_Clicked"
-                    WidthRequest="100"/>
+                    WidthRequest="140"/>
             </Grid>
         </VerticalStackLayout>
 
 
 
-        <Button Grid.Row="3" Grid.Column="0" x:Name="btnBackToHome"
+        <Button Grid.Row="2" Grid.Column="0" x:Name="btnBackToHome"
                 HeightRequest="40"
                 Text="Back"
                 Clicked="btnBackToHome_Clicked"/>
