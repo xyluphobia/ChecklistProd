@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|c:\\users\\matthew\\desktop\\checklistprod\\checklistprod\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|solutionrelative:checklistprod\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|c:\\users\\matthew\\desktop\\checklistprod\\checklistprod\\views\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|solutionrelative:checklistprod\\views\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|c:\\users\\matthew\\desktop\\checklistprod\\checklistprod\\models\\goalrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|solutionrelative:checklistprod\\models\\goalrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|c:\\users\\matthew\\desktop\\checklistprod\\checklistprod\\views\\signuppage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AEC1B10-2CBE-4E23-B0B5-C026D0EC2A68}|ChecklistProd\\ChecklistProd.csproj|solutionrelative:checklistprod\\views\\signuppage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,44 +14,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LoginPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\LoginPage.xaml.cs",
-              "RelativeDocumentMoniker": "ChecklistProd\\Views\\LoginPage.xaml.cs",
-              "ToolTip": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\LoginPage.xaml.cs",
-              "RelativeToolTip": "ChecklistProd\\Views\\LoginPage.xaml.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAowC4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T03:50:06.026Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "ChecklistProd\\Services\\AuthService.cs",
-              "ToolTip": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Services\\AuthService.cs",
-              "RelativeToolTip": "ChecklistProd\\Services\\AuthService.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAQwDIAAAAJAAAA",
+              "Title": "SignUpPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\SignUpPage.xaml.cs",
+              "RelativeDocumentMoniker": "ChecklistProd\\Views\\SignUpPage.xaml.cs",
+              "ToolTip": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Views\\SignUpPage.xaml.cs",
+              "RelativeToolTip": "ChecklistProd\\Views\\SignUpPage.xaml.cs",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAiwGUAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T03:49:21.253Z",
+              "WhenOpened": "2024-04-29T04:46:06.444Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GoalRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Models\\GoalRepository.cs",
-              "RelativeDocumentMoniker": "ChecklistProd\\Models\\GoalRepository.cs",
-              "ToolTip": "C:\\Users\\Matthew\\Desktop\\ChecklistProd\\ChecklistProd\\Models\\GoalRepository.cs",
-              "RelativeToolTip": "ChecklistProd\\Models\\GoalRepository.cs",
-              "ViewState": "AQIAAKMAAAAAAAAAAAAYwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T04:05:16.936Z"
             }
           ]
         }

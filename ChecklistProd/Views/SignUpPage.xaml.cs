@@ -1,5 +1,6 @@
 using Microsoft.Maui.ApplicationModel.Communication;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace ChecklistProd.Views;
 
@@ -17,10 +18,10 @@ public partial class SignUpPage : ContentPage
 
         if (behaviorEmailValidator.IsNotValid)
         {
-            await DisplayAlert("Invalid Credentials", "The email address entered is invalid, please try again.", "Ok");
+            await DisplayAlert("Invalid Email", "The email address entered is not a valid email, please try again.", "Ok");
             return;
         }
-        else if (Equals(email, "") || Equals(password, ""))
+        else if (Equals(email, "") || Equals(entryPassword.Text, "") || Equals(entryConfirmPassword.Text, ""))
         {
             await DisplayAlert("Error", "Please fill out all fields.", "Ok");
             return;
@@ -32,15 +33,10 @@ public partial class SignUpPage : ContentPage
             entryConfirmPassword.Text = "";
             return;
         }
-        else if (password.Length < 8)
+        else if (!PasswordIsStrong())
         {
-            await DisplayAlert("Error", "Passwords must be at least 8 characters long.", "Ok");
-            entryPassword.Text = "";
-            entryConfirmPassword.Text = "";
             return;
         }
-        entryPassword.Text = "";
-        entryConfirmPassword.Text = "";
 
         string? connectionString = Environment.GetEnvironmentVariable("ENV_SqlConnection");
         using SqlConnection connection = new SqlConnection(connectionString);
@@ -62,8 +58,63 @@ public partial class SignUpPage : ContentPage
             throw;
         }
 
+        entryPassword.Text = "";
+        entryConfirmPassword.Text = "";
+
         await DisplayAlert("Success!", "You have signed up successfully!", "Ok");
         await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+    }
+
+    private bool PasswordIsStrong()
+    {
+        // at least 10 characters long
+        // at least 1 upper case letter & 1 special character & 1 number
+        var regexNoSpecials = new Regex("^[a-zA-Z0-9 ]*$");
+
+        bool errorFound = false;
+        string messageInsert = "";
+
+        if (entryPassword.Text.Length < 10)
+        {
+            messageInsert = (10 - entryPassword.Text.Length).ToString() + " characters";
+            errorFound = true;
+        }
+        if (!entryPassword.Text.Any(char.IsUpper))
+        {
+            if (errorFound)
+                messageInsert += ", an uppercase character";
+            else
+            {
+                messageInsert += "an uppercase character";
+                errorFound = true;
+            }
+        }
+        if (regexNoSpecials.IsMatch(entryPassword.Text))
+        {
+            if (errorFound)
+                messageInsert += ", a special character";
+            else
+            {
+                messageInsert += "a special character";
+                errorFound = true;
+            }
+        }
+        if (!entryPassword.Text.Any(char.IsDigit))
+        {
+            if (errorFound)
+                messageInsert += "and a number";
+            else
+            {
+                messageInsert += "a number";
+                errorFound = true;
+            }
+        }
+
+        if (Equals(messageInsert, ""))
+            return true;
+
+        DisplayAlert("Error", $"Your password must be at least 10 characters long and contain at least 1 uppercase letter, 1 special character and 1 number. You are missing {messageInsert}.", "Ok");
+        return false;
     }
 
     private void btnShowPassword_Clicked(object sender, EventArgs e)
